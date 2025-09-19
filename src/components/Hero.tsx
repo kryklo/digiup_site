@@ -51,7 +51,7 @@ const Hero = () => {
                   Digitalizacja
                 </span>
                 <br />
-                <span className="font-body" style={{ color: '#14EFFD' }}>
+                <span className="font-body text-3xl lg:text-4xl text-black">
                   na miarę Twoich potrzeb
                 </span>
               </h1>
