@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-// Initialize Supabase client
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL || '',
-  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-);
-
-const ContactForm = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -18,7 +10,6 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,59 +17,19 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    sendEmail();
-  };
-
-  const sendEmail = async () => {
+    // Temporary placeholder - will be implemented later
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // Execute reCAPTCHA
-      if (!executeRecaptcha) {
-        throw new Error('reCAPTCHA not available');
-      }
-
-      const recaptchaToken = await executeRecaptcha('contact_form');
-      
-      if (!recaptchaToken) {
-        throw new Error('reCAPTCHA verification failed');
-      }
-
-      // Call Supabase Edge Function
-      const { data, error } = await supabase.functions.invoke('send-email', {
-        body: {
-          name: formData.name,
-          company: formData.company,
-          email: formData.email,
-          description: formData.description,
-          recaptchaToken: recaptchaToken,
-        },
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      // Success
+    setTimeout(() => {
       setSubmitStatus('success');
+      setIsSubmitting(false);
       setFormData({
         name: '',
         company: '',
         email: '',
         description: ''
       });
-
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      // Reset status after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    }
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }, 1000);
   };
 
   return (
@@ -188,7 +139,6 @@ const ContactForm = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none font-body"
-                    placeholder="Opisz czego potrzebujesz, jaki proces chcesz usprawnić lub jakim problemem się borykasz..."
                     placeholder="Opisz czego potrzebujesz, jaki proces chcesz usprawnić lub z jakim problemem się borykasz..."
                   ></textarea>
                 </div>
@@ -211,10 +161,6 @@ const ContactForm = () => {
                 <p className="text-sm font-body text-gray-500 text-center">
                   * Pola wymagane. Odpowiem w ciągu 24 godzin.
                 </p>
-                
-                <div className="text-xs font-body text-gray-500 text-center">
-                  <p>Ta strona jest chroniona przez reCAPTCHA. Obowiązują <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:underline">Polityka prywatności</a> i <a href="https://policies.google.com/terms" target=\"_blank" rel="noopener noreferrer\" className="text-cyan-600 hover:underline">Warunki korzystania</a> Google.</p>
-                </div>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs font-body text-gray-600 leading-relaxed">
                   <p className="font-semibold text-blue-800 mb-2">Klauzula RODO</p>
@@ -269,21 +215,6 @@ const ContactForm = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const Contact = () => {
-  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-  
-  if (!recaptchaSiteKey) {
-    console.warn('reCAPTCHA site key not configured');
-    return <ContactForm />;
-  }
-
-  return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <ContactForm />
-    </GoogleReCaptchaProvider>
   );
 };
 
