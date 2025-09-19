@@ -3,23 +3,31 @@ import { Calendar, MessageSquare, ArrowRight } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-cyan-600 via-blue-600 to-purple-600 relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent"></div>
-      <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full animate-pulse delay-1000"></div>
-      <div className="absolute bottom-10 left-10 w-24 h-24 bg-white/10 rounded-full animate-bounce delay-2000"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-blue-50"></div>
+      
+      {/* Background Dots */}
+      <div className="absolute top-20 left-10 w-3 h-3 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute bottom-32 right-16 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-purple-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      
+      {/* Additional dots */}
+      <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-cyan-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-blue-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-3/4 right-20 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
           <div className="mb-8">
-            <Calendar size={64} className="text-white mx-auto mb-6 animate-pulse" />
-            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6 leading-tight">
+            <Calendar size={64} className="text-cyan-600 mx-auto mb-6 animate-pulse" />
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-6 leading-tight">
               Masz 15 minut i pomysł na usprawnienie swojej pracy?
             </h2>
-            <div className="w-24 h-1 bg-white/50 rounded-full mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-cyan-500 rounded-full mx-auto mb-8"></div>
           </div>
 
-          <p className="text-xl font-body text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg font-body text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
             A może nie masz pomysłu, ale wiesz, że chcesz coś zmienić? 
             <br className="hidden sm:block" />
             <strong>Zapraszam do kontaktu.</strong>
@@ -31,7 +39,7 @@ const FinalCTA = () => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group bg-white text-cyan-600 px-10 py-5 rounded-xl font-body font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 flex items-center space-x-3"
+              className="group bg-cyan-500 hover:bg-cyan-600 text-white px-10 py-5 rounded-xl font-body font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center space-x-3"
             >
               <MessageSquare size={24} />
               <span>Umów rozmowę</span>
@@ -39,12 +47,12 @@ const FinalCTA = () => {
             </button>
 
             <div className="text-white/80 text-center">
-              <p className="text-sm font-body">lub</p>
+              <p className="text-sm font-body text-gray-500">lub</p>
             </div>
 
             <a
               href="tel:+48571570330"
-              className="font-body text-white hover:text-white/80 transition-colors duration-200 flex items-center space-x-2"
+              className="font-body text-gray-700 hover:text-cyan-600 transition-colors duration-200 flex items-center space-x-2"
             >
               <span className="text-lg">📞</span>
               <span className="font-semibold">+48 571 570 330</span>
@@ -52,7 +60,7 @@ const FinalCTA = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="font-body text-white/70 text-sm max-w-2xl mx-auto">
+            <p className="font-body text-gray-500 text-sm max-w-2xl mx-auto">
               Pierwsza konsultacja to rozmowa o Twoich potrzebach i wyzwaniach. 
               Bez zobowiązań, z konkretnymi wskazówkami już podczas pierwszego spotkania.
             </p>
