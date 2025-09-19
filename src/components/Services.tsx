@@ -73,7 +73,7 @@ const Services = () => {
             Usługi
           </h2>
           <p className="text-lg font-body text-gray-600 max-w-3xl mx-auto">
-            Kompleksowe rozwiązania automatyzacji i cyfryzacji dla Twojej firmy
+            Rozwiązania automatyzacji i cyfryzacji dla Twojej firmy
           </p>
         </div>
 
