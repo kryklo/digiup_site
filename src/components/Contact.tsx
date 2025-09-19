@@ -142,19 +142,23 @@ const Contact = () => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2 font-body text-gray-600">
                     <Mail size={16} className="text-cyan-500" />
-                    <span>kontakt@digiup.biz</span>
+                    <span>krystian@digiup.biz</span>
                   </div>
                   <div className="flex items-center space-x-2 font-body text-gray-600">
                     <Phone size={16} className="text-cyan-500" />
-                    <span>+48 XXX XXX XXX</span>
+                    <span>+48 571 570 330</span>
                   </div>
                   <div className="flex items-center space-x-2 font-body text-gray-600">
                     <Building size={16} className="text-cyan-500" />
-                    <span>NIP: XXXXXXXXX</span>
+                    <span>NIP: 6211763005</span>
                   </div>
                   <div className="flex items-center space-x-2 font-body text-gray-600">
                     <MapPin size={16} className="text-cyan-500" />
-                    <span>Adres firmy</span>
+                    <span>Roszków os. Zielony Zakątek 73/1, 63-200 Jarocin</span>
+                  </div>
+                  <div className="flex items-center space-x-2 font-body text-gray-600">
+                    <Building size={16} className="text-cyan-500" />
+                    <span>REGON: 540342350</span>
                   </div>
                 </div>
               </div>

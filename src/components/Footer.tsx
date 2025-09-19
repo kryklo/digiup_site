@@ -1,7 +1,9 @@
 import React from 'react';
-import { Mail, Phone, Linkedin, Github } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, X } from 'lucide-react';
 
 const Footer = () => {
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = React.useState(false);
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,11 +65,18 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 font-body text-gray-400">
                 <Mail size={16} />
-                <span className="text-sm">kontakt@digiup.biz</span>
+                <span className="text-sm">krystian@digiup.biz</span>
               </div>
               <div className="flex items-center space-x-2 font-body text-gray-400">
                 <Phone size={16} />
-                <span className="text-sm">+48 123 456 789</span>
+                <span className="text-sm">+48 571 570 330</span>
+              </div>
+              <div className="font-body text-gray-400 text-xs mt-4">
+                <p>DigiUp IT Consulting & Solutions</p>
+                <p>Krystian Kłopocki</p>
+                <p>Roszków os. Zielony Zakątek 73/1</p>
+                <p>63-200 Jarocin</p>
+                <p>NIP: 6211763005 | REGON: 540342350</p>
               </div>
             </div>
           </div>
@@ -78,8 +87,38 @@ const Footer = () => {
           <p className="font-body text-gray-400 text-sm">
             © 2024 DigiUp IT Consulting & Solutions. Wszystkie prawa zastrzeżone.
           </p>
+          <div className="mt-2">
+            <button
+              onClick={() => setShowPrivacyPolicy(true)}
+              className="font-body text-gray-400 hover:text-cyan-400 text-sm underline transition-colors duration-200"
+            >
+              Polityka prywatności
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Privacy Policy Popup */}
+      {showPrivacyPolicy && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] overflow-y-auto p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-heading font-bold text-gray-800">Polityka prywatności</h2>
+              <button
+                onClick={() => setShowPrivacyPolicy(false)}
+                className="text-gray-500 hover:text-gray-700 p-2"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className="font-body text-gray-600 text-sm leading-relaxed">
+              {Array.from({ length: 600 }, (_, i) => (
+                <span key={i}>polityka prywatności </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
