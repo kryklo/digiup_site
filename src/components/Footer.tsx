@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-8 h-8">
                 <img 
-                  src="/logo-symbol.png" 
+                  src="/Wordpress Transparent.png" 
                   alt="DigiUp" 
                   className="w-full h-full object-contain opacity-90"
                 />

@@ -20,12 +20,11 @@ const About = () => {
               
               {/* Placeholder for portrait photo */}
               <div className="relative bg-white rounded-2xl aspect-square flex items-center justify-center shadow-lg border border-gray-100">
-                <div className="text-center text-gray-500">
-                  <div className="w-16 h-16 bg-cyan-200 rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <span className="text-2xl">👨‍💼</span>
-                  </div>
-                  <p className="font-medium text-sm">Krystian Kłopocki</p>
-                </div>
+                <img 
+                  src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                  alt="Krystian Kłopocki" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
             </div>
           </div>

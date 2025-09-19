@@ -30,7 +30,7 @@ const Header = () => {
           <div className="flex items-center">
             <div className="w-10 h-10 relative">
               <img 
-                src="/logo-symbol.png" 
+                src="/Wordpress Transparent.png" 
                 alt="DigiUp" 
                 className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
               />
