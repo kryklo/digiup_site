@@ -28,18 +28,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <button
-              className="w-10 h-10 relative group cursor-pointer"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
+            <div className="w-10 h-10 relative group">
               <img 
                 src="/Wordpress Transparent.png" 
                 alt="DigiUp" 
                 className="w-full h-full object-contain group-hover:rotate-360 transition-transform duration-500 ease-in-out"
               />
-            </button>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
