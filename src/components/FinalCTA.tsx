@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MessageSquare, ArrowRight } from 'lucide-react';
+import { Calendar, MessageSquare, ArrowRight, Phone } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
@@ -54,7 +54,7 @@ const FinalCTA = () => {
               href="tel:+48571570330"
               className="font-body text-gray-700 hover:text-cyan-600 transition-colors duration-200 flex items-center space-x-2"
             >
-              <span className="text-lg text-cyan-500">📞</span>
+              <Phone size={20} className="text-cyan-500" />
               <span className="font-semibold">+48 571 570 330</span>
             </a>
           </div>
