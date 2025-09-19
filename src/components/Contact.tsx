@@ -21,15 +21,17 @@ const Contact = () => {
     
     try {
       await emailjs.send(
-        'service_digiup',
-        'template_unho3ac',
+        'service_digiup', // Sprawdź czy to jest poprawne Service ID
+        'template_unho3ac', // Sprawdź czy to jest poprawne Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'krystian@digiup.biz'
+          to_name: 'Krystian Kłopocki',
+          to_email: 'krystian@digiup.biz',
+          reply_to: formData.email
         },
-        'fMKpRoT0Jpqg_SB87'
+        'fMKpRoT0Jpqg_SB87' // Sprawdź czy to jest poprawny Public Key
       );
       
       setSubmitStatus('success');
