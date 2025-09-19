@@ -166,3 +166,52 @@ textarea:focus {
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
 }
+
+/* Quill Editor Customization */
+.ql-editor {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.ql-editor.ql-blank::before {
+  font-family: 'Roboto', sans-serif !important;
+  font-style: normal !important;
+  color: #9ca3af !important;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #e5e7eb !important;
+  border-left: 1px solid #e5e7eb !important;
+  border-right: 1px solid #e5e7eb !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0 !important;
+  background: #f9fafb !important;
+}
+
+.ql-container {
+  border-bottom: 1px solid #e5e7eb !important;
+  border-left: 1px solid #e5e7eb !important;
+  border-right: 1px solid #e5e7eb !important;
+  border-top: none !important;
+  border-radius: 0 0 8px 8px !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.ql-editor:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1) !important;
+}
+
+/* Custom button styling for Quill */
+.ql-toolbar .ql-formats {
+  margin-right: 15px;
+}
+
+.ql-toolbar button:hover {
+  color: #06b6d4 !important;
+}
+
+.ql-toolbar button.ql-active {
+  color: #06b6d4 !important;
+}

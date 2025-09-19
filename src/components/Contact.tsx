@@ -1,20 +1,56 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import dynamic from 'next/dynamic';
+
+// Dynamically import ReactQuill to avoid SSR issues
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    messageHtml: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isEditorExpanded, setIsEditorExpanded] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleEditorChange = (content: string, delta: any, source: any, editor: any) => {
+    setFormData({ 
+      ...formData, 
+      message: editor.getText(), // Plain text for fallback
+      messageHtml: content // HTML content
+    });
+  };
+
+  // Quill editor modules configuration
+  const modules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }],
+      ['link', 'image'],
+      ['clean']
+    ],
+    clipboard: {
+      matchVisual: false,
+    }
+  };
+
+  const formats = [
+    'header', 'bold', 'italic', 'underline', 'strike',
+    'color', 'background', 'list', 'bullet', 'indent',
+    'link', 'image'
+  ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -28,7 +64,7 @@ const Contact = () => {
           from_name: formData.name,
           name: formData.name, // dodatkowe mapowanie
           time: new Date().toLocaleString('pl-PL'),
-          message: formData.message,
+          message: formData.messageHtml || formData.message, // Send HTML version if available
           from_email: formData.email,
           email: formData.email, // dodatkowe mapowanie
           reply_to: formData.email,
@@ -42,7 +78,8 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        messageHtml: ''
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
