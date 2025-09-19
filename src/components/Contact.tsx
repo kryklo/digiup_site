@@ -110,6 +110,7 @@ const Contact = () => {
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none font-body"
                     placeholder="Opisz czego potrzebujesz, jaki proces chcesz usprawnić lub jakim problemem się borykasz..."
+                    placeholder="Opisz czego potrzebujesz, jaki proces chcesz usprawnić lub z jakim problemem się borykasz..."
                   ></textarea>
                 </div>
 

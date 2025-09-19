@@ -8,6 +8,7 @@ const Cases = () => {
       category: 'Handel',
       title: 'Automatyzacja obsługi zamówień',
       problem: 'ręczne przetwarzanie zamówień od klientów ze sklepu internetowego, opóźnienia i pomyłki.',
+      problem: 'Ręczne przetwarzanie zamówień od klientów ze sklepu internetowego, opóźnienia i pomyłki.',
       solution: 'Automatyczny import i walidacja zamówień, integracja z ERP.',
       result: 'Redukcja pracy ręcznej o 80%, szybsza obsługa klienta.',
       stats: [

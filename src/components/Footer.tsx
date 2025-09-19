@@ -11,15 +11,10 @@ const Footer = () => {
           
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8">
-                <img 
-                  src="/Wordpress Transparent.png" 
-                  alt="DigiUp" 
-                  className="w-full h-full object-contain opacity-90"
-                />
-              </div>
-              <span className="text-xl font-bold text-white">DigiUp</span>
+            <div className="mb-4">
+              <h3 className="text-xl font-heading font-bold text-white">
+                DigiUp <span className="font-body font-normal">IT C & S</span>
+              </h3>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed mb-4">
             </p>
