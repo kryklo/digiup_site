@@ -61,9 +61,8 @@ const Hero = () => {
 
             <p className="text-lg font-body text-gray-600 leading-relaxed max-w-2xl">
               Doradzę Ci jak przeprowadzić cyfryzację Twojej firmy. Powiem co zrobić, 
-              aby usprawnić systemy, które nie spełniają Twoich oczekiwań. Pomagam firmom 
-              integrować systemy (ERP, WMS, MES, EDI), buduję lekkie aplikacje i raporty, 
-              które zdejmują powtarzalną pracę z ludzi.
+              aby usprawnić systemy, które nie spełniają Twoich oczekiwań. Buduję workflow, 
+              lekkie aplikacje i raporty, które zdejmują powtarzalną pracę z ludzi.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
