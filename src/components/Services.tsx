@@ -67,12 +67,6 @@ const Services = () => {
       <div className="absolute top-2/3 left-20 w-2 h-2 bg-cyan-100 rounded-full animate-float animate-pulse-grow"></div>
       <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
       
-      {/* Network connections */}
-      <div className="network-line top-12 left-12" style={{ width: '100px', transform: 'rotate(20deg)' }}></div>
-      <div className="network-line bottom-32 right-20" style={{ width: '80px', transform: 'rotate(-30deg)' }}></div>
-      <div className="network-line-diagonal top-1/4 left-1/3" style={{ width: '70px', transform: 'rotate(45deg)' }}></div>
-      <div className="network-line bottom-1/3 right-1/4" style={{ width: '60px', transform: 'rotate(15deg)' }}></div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">

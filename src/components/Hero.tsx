@@ -38,14 +38,6 @@ const Hero = () => {
       <div className="absolute bottom-1/2 right-20 w-2 h-2 bg-blue-100 rounded-full animate-float animate-pulse-grow"></div>
       <div className="absolute top-40 right-1/3 w-3 h-3 bg-purple-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
 
-      {/* Network connections */}
-      <div className="network-line top-20 left-12" style={{ width: '120px', transform: 'rotate(15deg)' }}></div>
-      <div className="network-line top-1/3 right-1/3" style={{ width: '80px', transform: 'rotate(-25deg)' }}></div>
-      <div className="network-line bottom-1/3 left-1/3" style={{ width: '100px', transform: 'rotate(45deg)' }}></div>
-      <div className="network-line-vertical top-1/4 left-1/2"></div>
-      <div className="network-line top-2/3 right-1/4" style={{ width: '90px', transform: 'rotate(-15deg)' }}></div>
-      <div className="network-line-diagonal bottom-40 left-24" style={{ width: '60px', transform: 'rotate(30deg)' }}></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

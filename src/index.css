@@ -183,62 +183,6 @@ textarea:focus {
   animation: slide-in-right 0.4s ease-out;
 }
 
-/* Network connections */
-.network-line {
-  position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
-  height: 1px;
-  transform-origin: left center;
-  animation: network-pulse 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.network-line-diagonal {
-  background: linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.15), transparent);
-  height: 1px;
-  animation: network-pulse-delayed 10s ease-in-out infinite 2s;
-}
-
-.network-line-vertical {
-  background: linear-gradient(0deg, transparent, rgba(6, 182, 212, 0.1), transparent);
-  width: 1px;
-  height: 100px;
-  animation: network-pulse-slow 12s ease-in-out infinite 4s;
-}
-
-@keyframes network-pulse {
-  0%, 100% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
-
-@keyframes network-pulse-delayed {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-}
-
-@keyframes network-pulse-slow {
-  0%, 100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scaleY(1);
-  }
-}
-
 /* Quill.js Editor Customization */
 .quill-wrapper .ql-toolbar {
   border-top: 1px solid #e5e7eb !important;
