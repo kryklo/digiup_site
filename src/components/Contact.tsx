@@ -216,6 +216,9 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
+                  <p className="text-xs font-body text-gray-500 mb-2">
+                    💡 Tip: Możesz formatować tekst i wklejać obrazy, ale duże pliki mogą powodować problemy z wysyłką
+                  </p>
                   <div className="quill-wrapper">
                     {!isQuillLoaded ? (
                       <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
