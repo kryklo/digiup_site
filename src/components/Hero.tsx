@@ -47,8 +47,11 @@ const Hero = () => {
           }`}>
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-5xl font-heading font-bold leading-tight text-gray-800">
-                Digitalizacja
-                <span className="text-cyan-600">
+                <span style={{ color: '#15A3C8' }}>
+                  Digitalizacja
+                </span>
+                <br />
+                <span className="font-body" style={{ color: '#14EFFD' }}>
                   na miarę Twoich potrzeb
                 </span>
               </h1>
