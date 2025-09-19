@@ -31,7 +31,9 @@ const Contact = () => {
           message: formData.message,
           from_email: formData.email,
           email: formData.email, // dodatkowe mapowanie
-          reply_to: formData.email
+          reply_to: formData.email,
+          user_email: formData.email, // dodatkowe mapowanie na wypadek innej nazwy
+          contact_email: formData.email // jeszcze jedno mapowanie
         },
         'fMKpRoT0Jpqg_SB87' // Sprawdź czy to jest poprawny Public Key
       );
