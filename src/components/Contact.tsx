@@ -213,7 +213,7 @@ const ContactForm = () => {
                 </p>
                 
                 <div className="text-xs font-body text-gray-500 text-center">
-                  <p>Ta strona jest chroniona przez reCAPTCHA. Obowiązują <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:underline">Polityka prywatności</a> i <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:underline">Warunki korzystania</a> Google.</p>
+                  <p>Ta strona jest chroniona przez reCAPTCHA. Obowiązują <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:underline">Polityka prywatności</a> i <a href="https://policies.google.com/terms" target=\"_blank" rel="noopener noreferrer\" className="text-cyan-600 hover:underline">Warunki korzystania</a> Google.</p>
                 </div>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs font-body text-gray-600 leading-relaxed">
