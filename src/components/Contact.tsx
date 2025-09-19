@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL || '',
+  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +15,8 @@ const Contact = () => {
     email: '',
     description: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,9 +24,47 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Dziękuję za wiadomość! Skontaktuję się z Tobą w ciągu 24 godzin.');
+    sendEmail();
+  };
+
+  const sendEmail = async () => {
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Call Supabase Edge Function
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          description: formData.description,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Success
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        description: ''
+      });
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    }
   };
 
   return (
@@ -44,6 +91,24 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-gray-50 p-8 rounded-xl border border-gray-100">
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="font-body text-green-800 text-sm">
+                    ✅ Dziękuję za wiadomość! Skontaktuję się z Tobą w ciągu 24 godzin.
+                  </p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="font-body text-red-800 text-sm">
+                    ❌ Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio: 
+                    <a href="mailto:krystian@digiup.biz" className="underline ml-1">krystian@digiup.biz</a>
+                  </p>
+                </div>
+              )}
+
               <h3 className="text-xl font-heading font-bold text-gray-800 mb-2">
                 Szybka wycena
               </h3>
@@ -116,10 +181,17 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
+                  disabled={isSubmitting}
+                  className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none transition-all duration-200 flex items-center justify-center space-x-2"
                 >
-                  <Send size={20} />
-                  <span>Wyślij zapytanie</span>
+                  {isSubmitting ? (
+                    <span>Wysyłanie...</span>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      <span>Wyślij zapytanie</span>
+                    </>
+                  )}
                 </button>
 
                 <p className="text-sm font-body text-gray-500 text-center">
