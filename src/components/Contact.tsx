@@ -253,6 +253,12 @@ const Contact = () => {
                   * Pola wymagane. Odpowiem w ciągu 24 godzin.
                 </p>
 
+                <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-4 text-center">
+                  <p className="text-xs font-body text-cyan-800">
+                    🍪 <strong>Informacja o cookies:</strong> Wysyłając formularz, potwierdzasz akceptację plików cookies niezbędnych do jego działania. 
+                    Więcej informacji znajdziesz w naszej polityce prywatności.
+                  </p>
+                </div>
                 <div className="text-xs font-body text-gray-500 text-center">
                   <p>Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych w celu udzielenia odpowiedzi na zapytanie, zgodnie z naszą polityką prywatności. Dane będą przetwarzane przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
                 </div>
