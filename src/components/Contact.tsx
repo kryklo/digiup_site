@@ -21,7 +21,7 @@ const Contact = () => {
     
     try {
       await emailjs.send(
-        'service_digiup', // Sprawdź czy to jest poprawne Service ID
+        'service_z3io2d5', // Poprawne Service ID
         'template_unho3ac', // Sprawdź czy to jest poprawne Template ID
         {
           from_name: formData.name,
