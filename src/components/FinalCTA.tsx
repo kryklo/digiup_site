@@ -27,7 +27,10 @@ const FinalCTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="group bg-white text-cyan-600 px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 flex items-center space-x-3"
             >
               <MessageSquare size={24} />

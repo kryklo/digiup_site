@@ -58,7 +58,10 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <span>Umów konsultację</span>
@@ -66,7 +69,10 @@ const Hero = () => {
               </button>
               
               <button
-                onClick={() => scrollToSection('services')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-cyan-500 hover:text-cyan-600 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <span>Zobacz co robię</span>
@@ -99,7 +105,10 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <button
-          onClick={() => scrollToSection('services')}
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+          }}
           className="text-gray-400 hover:text-cyan-500 transition-colors duration-200"
         >
           <ArrowDown size={32} />
