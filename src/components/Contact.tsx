@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
-    description: ''
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -15,21 +15,36 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Temporary placeholder - will be implemented later
     setIsSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      await emailjs.send(
+        'service_digiup',
+        'template_contact',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'krystian@digiup.biz'
+        },
+        'fMKpRoT0Jpqg_SB87'
+      );
+      
       setSubmitStatus('success');
-      setIsSubmitting(false);
       setFormData({
         name: '',
-        company: '',
         email: '',
-        description: ''
+        message: ''
       });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 1000);
+    }
   };
 
   return (
@@ -68,7 +83,8 @@ const Contact = () => {
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="font-body text-red-800 text-sm">
-                    ❌ Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio: 
+                    ❌ Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub zadzwoń: 
+                    <a href="tel:+48571570330" className="underline ml-1">+48 571 570 330</a> lub napisz: 
                     <a href="mailto:krystian@digiup.biz" className="underline ml-1">krystian@digiup.biz</a>
                   </p>
                 </div>
@@ -79,36 +95,20 @@ const Contact = () => {
               </h3>
               <p className="font-body text-gray-600 text-sm mb-6">Opisz swój problem, a skontaktuję się z Tobą w ciągu 24 godzin</p>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-body font-medium text-gray-700 mb-1">
-                      Imię i nazwisko *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body"
-                      placeholder="Twoje imię i nazwisko"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-body font-medium text-gray-700 mb-1">
-                      Firma
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body"
-                      placeholder="Nazwa firmy"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-body font-medium text-gray-700 mb-1">
+                    Imię i nazwisko *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body"
+                    placeholder="Twoje imię i nazwisko"
+                  />
                 </div>
 
                 <div>
@@ -128,18 +128,18 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="description" className="block text-sm font-body font-medium text-gray-700 mb-1">
-                    Opis problemu *
+                  <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
+                    Wiadomość *
                   </label>
                   <textarea
-                    id="description"
-                    name="description"
-                    value={formData.description}
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none font-body"
-                    placeholder="Opisz czego potrzebujesz, jaki proces chcesz usprawnić lub z jakim problemem się borykasz..."
+                    placeholder="Opisz swój problem, projekt lub pytanie..."
                   ></textarea>
                 </div>
 
@@ -161,17 +161,6 @@ const Contact = () => {
                 <p className="text-sm font-body text-gray-500 text-center">
                   * Pola wymagane. Odpowiem w ciągu 24 godzin.
                 </p>
-                
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs font-body text-gray-600 leading-relaxed">
-                  <p className="font-semibold text-blue-800 mb-2">Klauzula RODO</p>
-                  <p>
-                    Administratorem danych osobowych jest DigiUp IT Consulting & Solutions Krystian Kłopocki, 
-                    os. Zielony Zakątek 73/1, 63-200 Jarocin, NIP 6211763005. Dane podane w formularzu będą 
-                    przetwarzane w celu obsługi zapytania. Masz prawo dostępu do treści swoich danych oraz ich 
-                    poprawiania, usunięcia lub ograniczenia przetwarzania. Podanie danych jest dobrowolne, 
-                    ale niezbędne do obsługi zapytania.
-                  </p>
-                </div>
               </form>
             </div>
           </div>
