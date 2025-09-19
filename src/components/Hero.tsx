@@ -20,15 +20,15 @@ const Hero = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 bg-white"></div>
       
-      {/* Animated Background Shapes */}
-      <div className="absolute top-20 left-10 w-4 h-4 bg-cyan-400 rounded-full animate-float opacity-60"></div>
-      <div className="absolute top-32 right-20 w-3 h-3 bg-blue-400 rounded-full animate-float-delayed opacity-40"></div>
-      <div className="absolute bottom-40 left-20 w-5 h-5 bg-purple-400 rounded-full animate-float-slow opacity-50"></div>
-      <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-cyan-300 rounded-full animate-float opacity-70"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-blue-300 rounded-full animate-float-delayed opacity-60"></div>
-      <div className="absolute top-2/3 right-1/4 w-4 h-4 bg-purple-300 rounded-full animate-float-slow opacity-40"></div>
-      <div className="absolute top-1/4 left-1/2 w-2 h-2 bg-cyan-500 rounded-full animate-float opacity-80"></div>
-      <div className="absolute bottom-1/4 right-1/2 w-3 h-3 bg-blue-500 rounded-full animate-float-delayed opacity-50"></div>
+      {/* Animated Background Dots */}
+      <div className="absolute top-20 left-10 w-3 h-3 bg-cyan-400 rounded-full animate-float opacity-40"></div>
+      <div className="absolute top-32 right-20 w-2 h-2 bg-blue-400 rounded-full animate-float-delayed opacity-30"></div>
+      <div className="absolute bottom-40 left-20 w-4 h-4 bg-purple-400 rounded-full animate-float-slow opacity-20"></div>
+      <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-cyan-300 rounded-full animate-float opacity-50"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-blue-300 rounded-full animate-float-delayed opacity-40"></div>
+      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-purple-300 rounded-full animate-float-slow opacity-60"></div>
+      <div className="absolute top-1/4 left-1/2 w-3 h-3 bg-cyan-500 rounded-full animate-float opacity-30"></div>
+      <div className="absolute bottom-1/4 right-1/2 w-2 h-2 bg-blue-500 rounded-full animate-float-delayed opacity-50"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -38,10 +38,8 @@ const Hero = () => {
             isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
           }`}>
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="text-gray-800">
-                  Automatyzacje i aplikacje
-                </span>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-800">
+                Automatyzacje i aplikacje
                 <br />
                 <span className="text-cyan-600">
                   na miarę Twoich potrzeb
@@ -77,7 +75,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Logo Animation */}
+          {/* Logo */}
           <div className={`flex justify-center lg:justify-end transform transition-all duration-1000 delay-300 ${
             isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
           }`}>
@@ -85,10 +83,10 @@ const Hero = () => {
               {/* Subtle Background Circle */}
               <div className="absolute inset-0 bg-cyan-100/30 rounded-full animate-pulse"></div>
               
-              {/* Main Logo */}
-              <div className="relative w-80 h-64 flex items-center justify-center">
+              {/* Main Logotype */}
+              <div className="relative w-96 h-64 flex items-center justify-center">
                 <img 
-                  src="/Transparent Logo copy.png" 
+                  src="/digiup-logotype.png" 
                   alt="DigiUp IT Consulting & Solutions" 
                   className="w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
                 />

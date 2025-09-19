@@ -27,12 +27,12 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 relative">
+          <div className="flex items-center">
+            <div className="w-10 h-10 relative">
               <img 
-                src="/Transparent Logo copy.png" 
+                src="/logo-symbol.png" 
                 alt="DigiUp" 
-                className="w-full h-full object-contain animate-pulse hover:animate-spin transition-transform duration-500"
+                className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ const Header = () => {
           {/* CTA Button */}
           <button
             onClick={() => scrollToSection('contact')}
-            className="hidden md:block bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             Umów konsultację
           </button>
@@ -94,7 +94,7 @@ const Header = () => {
               ))}
               <button
                 onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4"
               >
                 Umów konsultację
               </button>
