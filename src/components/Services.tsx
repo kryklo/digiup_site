@@ -56,17 +56,23 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
       {/* Background Dots */}
-      <div className="absolute top-10 left-10 w-2 h-2 bg-cyan-300 rounded-full animate-float opacity-40"></div>
-      <div className="absolute top-32 right-20 w-3 h-3 bg-blue-300 rounded-full animate-float-delayed opacity-30"></div>
-      <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-purple-300 rounded-full animate-float-slow opacity-50"></div>
-      <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-cyan-200 rounded-full animate-float opacity-20"></div>
+      <div className="absolute top-10 left-10 w-2 h-2 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute top-32 right-20 w-3 h-3 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-purple-300 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-cyan-200 rounded-full animate-float animate-pulse-grow"></div>
+      
+      {/* Additional dots */}
+      <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-blue-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-2/3 left-20 w-2 h-2 bg-cyan-100 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
             Usługi
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg font-body text-gray-600 max-w-3xl mx-auto">
             Kompleksowe rozwiązania automatyzacji i cyfryzacji dla Twojej firmy
           </p>
         </div>
@@ -82,15 +88,15 @@ const Services = () => {
                   <service.icon size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  <h3 className="text-xl font-heading font-bold text-gray-800 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-4">{service.subtitle}</p>
+                  <p className="text-sm font-body text-gray-500 mb-4">{service.subtitle}</p>
                   <ul className="space-y-3">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-600 text-sm leading-relaxed">{item}</span>
+                        <span className="font-body text-gray-600 text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -106,7 +112,7 @@ const Services = () => {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
           >
             Porozmawiajmy o Twoim projekcie
           </button>

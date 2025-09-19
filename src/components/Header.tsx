@@ -52,7 +52,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-cyan-600 font-medium transition-colors duration-200 hover:scale-105 transform"
+                className="font-body text-gray-700 hover:text-cyan-600 font-medium transition-colors duration-200 hover:scale-105 transform"
               >
                 {item.label}
               </button>
@@ -62,7 +62,7 @@ const Header = () => {
           {/* CTA Button */}
           <button
             onClick={() => scrollToSection('contact')}
-            className="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            className="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-body font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             Umów konsultację
           </button>
@@ -90,14 +90,14 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-gray-700 hover:text-cyan-600 font-medium py-2"
+                  className="text-left font-body text-gray-700 hover:text-cyan-600 font-medium py-2"
                 >
                   {item.label}
                 </button>
               ))}
               <button
                 onClick={() => scrollToSection('contact')}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-body font-semibold text-center mt-4"
               >
                 Umów konsultację
               </button>

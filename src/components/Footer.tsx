@@ -20,6 +20,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-white">DigiUp</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed mb-4">
+            <p className="font-body text-gray-400 max-w-md leading-relaxed mb-4">
               DigiUp IT Consulting & Solutions specjalizuje się w automatyzacji procesów biznesowych, 
               integracjach systemów i rozwiązaniach szytych na miarę.
             </p>
@@ -35,7 +36,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white mb-4">Szybkie linki</h4>
+            <h4 className="font-heading font-bold text-white mb-4">Szybkie linki</h4>
             <ul className="space-y-2">
               {[
                 { label: 'Usługi', id: 'services' },
@@ -46,7 +47,7 @@ const Footer = () => {
                 <li key={item.id}>
                   <button
                     onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                    className="font-body text-gray-400 hover:text-cyan-400 transition-colors duration-200"
                   >
                     {item.label}
                   </button>
@@ -57,13 +58,13 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-white mb-4">Kontakt</h4>
+            <h4 className="font-heading font-bold text-white mb-4">Kontakt</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-2 text-gray-400">
+              <div className="flex items-center space-x-2 font-body text-gray-400">
                 <Mail size={16} />
                 <span className="text-sm">kontakt@digiup.biz</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-400">
+              <div className="flex items-center space-x-2 font-body text-gray-400">
                 <Phone size={16} />
                 <span className="text-sm">+48 123 456 789</span>
               </div>
@@ -73,7 +74,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="font-body text-gray-400 text-sm">
             © 2024 DigiUp IT Consulting & Solutions. Wszystkie prawa zastrzeżone.
           </p>
         </div>

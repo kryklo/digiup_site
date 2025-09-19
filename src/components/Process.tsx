@@ -30,11 +30,11 @@ const Process = () => {
     <section id="process" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6">
             Jak pracuję
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl font-body text-gray-600 max-w-3xl mx-auto">
             Prosty, sprawdzony proces od analizy po wdrożenie
           </p>
         </div>
@@ -60,10 +60,10 @@ const Process = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-cyan-700 transition-colors duration-300">
+                  <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4 group-hover:text-cyan-700 transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="font-body text-gray-600 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -77,10 +77,10 @@ const Process = () => {
 
         <div className="mt-16 text-center">
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
               Gotowy na pierwszą rozmowę?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="font-body text-gray-600 mb-6">
               Opowiedz mi o swoim wyzwaniu – już podczas pierwszej rozmowy otrzymasz konkretne wskazówki.
             </p>
             <button
@@ -88,7 +88,7 @@ const Process = () => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-body font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
             >
               Zacznijmy rozmowę
             </button>

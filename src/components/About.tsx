@@ -5,9 +5,14 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-white relative overflow-hidden">
       {/* Background Dots */}
-      <div className="absolute top-20 right-10 w-3 h-3 bg-cyan-300 rounded-full animate-float opacity-30"></div>
-      <div className="absolute bottom-32 left-20 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed opacity-40"></div>
-      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-purple-200 rounded-full animate-float-slow opacity-20"></div>
+      <div className="absolute top-20 right-10 w-3 h-3 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute bottom-32 left-20 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-purple-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      
+      {/* Additional dots */}
+      <div className="absolute top-1/4 left-10 w-2 h-2 bg-cyan-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-3/4 left-1/3 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -32,12 +37,12 @@ const About = () => {
           {/* Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
                 O mnie
               </h2>
             </div>
 
-            <div className="space-y-4 text-gray-600">
+            <div className="space-y-4 font-body text-gray-600">
               <p className="text-lg leading-relaxed">
                 Nazywam się <strong className="text-cyan-600">Krystian Kłopocki</strong> i prowadzę firmę 
                 <strong className="text-gray-800"> DigiUp IT Consulting & Solutions</strong>.
@@ -70,7 +75,7 @@ const About = () => {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
                 Poznajmy się bliżej
               </button>

@@ -13,13 +13,13 @@ const FinalCTA = () => {
         <div className="text-center">
           <div className="mb-8">
             <Calendar size={64} className="text-white mx-auto mb-6 animate-pulse" />
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6 leading-tight">
               Masz 15 minut i pomysł na usprawnienie swojej pracy?
             </h2>
             <div className="w-24 h-1 bg-white/50 rounded-full mx-auto mb-8"></div>
           </div>
 
-          <p className="text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl font-body text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
             A może nie masz pomysłu, ale wiesz, że chcesz coś zmienić? 
             <br className="hidden sm:block" />
             <strong>Zapraszam do kontaktu.</strong>
@@ -31,7 +31,7 @@ const FinalCTA = () => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group bg-white text-cyan-600 px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 flex items-center space-x-3"
+              className="group bg-white text-cyan-600 px-10 py-5 rounded-xl font-body font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-200 flex items-center space-x-3"
             >
               <MessageSquare size={24} />
               <span>Umów rozmowę</span>
@@ -39,12 +39,12 @@ const FinalCTA = () => {
             </button>
 
             <div className="text-white/80 text-center">
-              <p className="text-sm">lub</p>
+              <p className="text-sm font-body">lub</p>
             </div>
 
             <a
               href="tel:+48123456789"
-              className="text-white hover:text-white/80 transition-colors duration-200 flex items-center space-x-2"
+              className="font-body text-white hover:text-white/80 transition-colors duration-200 flex items-center space-x-2"
             >
               <span className="text-lg">📞</span>
               <span className="font-semibold">+48 123 456 789</span>
@@ -52,7 +52,7 @@ const FinalCTA = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-white/70 text-sm max-w-2xl mx-auto">
+            <p className="font-body text-white/70 text-sm max-w-2xl mx-auto">
               Pierwsza konsultacja to rozmowa o Twoich potrzebach i wyzwaniach. 
               Bez zobowiązań, z konkretnymi wskazówkami już podczas pierwszego spotkania.
             </p>
