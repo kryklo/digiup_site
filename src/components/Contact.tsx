@@ -1,85 +1,106 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import 'react-quill/dist/quill.snow.css';
 
-// Dynamically import ReactQuill
-const ReactQuill = lazy(() => import('react-quill'));
+// Declare Quill as global
+declare global {
+  interface Window {
+    Quill: any;
+  }
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
-    messageHtml: ''
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [isEditorExpanded, setIsEditorExpanded] = useState(false);
+  const [isQuillLoaded, setIsQuillLoaded] = useState(false);
+  const quillRef = useRef<any>(null);
+  const editorRef = useRef<HTMLDivElement>(null);
+
+  // Load Quill.js dynamically
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.quilljs.com/1.3.6/quill.min.js';
+    script.onload = () => {
+      setIsQuillLoaded(true);
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  // Initialize Quill editor
+  useEffect(() => {
+    if (isQuillLoaded && editorRef.current && !quillRef.current) {
+      quillRef.current = new window.Quill(editorRef.current, {
+        theme: 'snow',
+        placeholder: 'Opisz swój problem, projekt lub pytanie...',
+        modules: {
+          toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'indent': '-1'}, { 'indent': '+1' }],
+            ['link', 'image'],
+            ['clean']
+          ]
+        }
+      });
+
+      // Handle content changes
+      quillRef.current.on('text-change', () => {
+        const html = quillRef.current.root.innerHTML;
+        const text = quillRef.current.getText();
+        setFormData(prev => ({ ...prev, message: html }));
+      });
+    }
+  }, [isQuillLoaded]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleEditorChange = (content: string, delta: any, source: any, editor: any) => {
-    setFormData({ 
-      ...formData, 
-      message: editor.getText(), // Plain text for fallback
-      messageHtml: content // HTML content
-    });
-  };
-
-  // Quill editor modules configuration
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ 'color': [] }, { 'background': [] }],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'indent': '-1'}, { 'indent': '+1' }],
-      ['link', 'image'],
-      ['clean']
-    ],
-    clipboard: {
-      matchVisual: false,
-    }
-  };
-
-  const formats = [
-    'header', 'bold', 'italic', 'underline', 'strike',
-    'color', 'background', 'list', 'bullet', 'indent',
-    'link', 'image'
-  ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
       await emailjs.send(
-        'service_z3io2d5', // Poprawne Service ID
-        'template_unho3ac', // Sprawdź czy to jest poprawne Template ID
+        'service_z3io2d5',
+        'template_unho3ac',
         {
           title: 'Nowe zapytanie z digiup.biz',
           from_name: formData.name,
-          name: formData.name, // dodatkowe mapowanie
+          name: formData.name,
           time: new Date().toLocaleString('pl-PL'),
-          message: formData.messageHtml || formData.message, // Send HTML version if available
+          message: formData.message,
           from_email: formData.email,
-          email: formData.email, // dodatkowe mapowanie
+          email: formData.email,
           reply_to: formData.email,
-          user_email: formData.email, // dodatkowe mapowanie na wypadek innej nazwy
-          contact_email: formData.email // jeszcze jedno mapowanie
+          user_email: formData.email,
+          contact_email: formData.email
         },
-        'fMKpRoT0Jpqg_SB87' // Sprawdź czy to jest poprawny Public Key
+        'fMKpRoT0Jpqg_SB87'
       );
       
       setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
-        message: '',
-        messageHtml: ''
+        message: ''
       });
+      
+      // Clear Quill editor
+      if (quillRef.current) {
+        quillRef.current.setContents([]);
+      }
     } catch (error) {
       console.error('EmailJS Error:', error);
       setSubmitStatus('error');
@@ -173,32 +194,24 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
-                  <div className="relative">
-                    <button
-                      type="button"
-                      onClick={() => setIsEditorExpanded(!isEditorExpanded)}
-                      className="absolute top-2 right-2 z-10 px-3 py-1 text-xs bg-cyan-500 text-white rounded hover:bg-cyan-600 transition-colors"
-                    >
-                      {isEditorExpanded ? 'Zwiń' : 'Rozwiń edytor'}
-                    </button>
-                    <Suspense fallback={<div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center">Ładowanie edytora...</div>}>
-                      <ReactQuill
-                        value={formData.messageHtml}
-                        onChange={handleEditorChange}
-                        modules={modules}
-                        formats={formats}
-                        placeholder="Opisz swój problem, projekt lub pytanie..."
-                        className={`bg-white rounded-lg transition-all duration-300 ${
-                          isEditorExpanded ? 'editor-expanded' : 'editor-normal'
-                        }`}
+                  <div className="quill-wrapper">
+                    {!isQuillLoaded ? (
+                      <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
+                        <span className="font-body text-gray-500">Ładowanie edytora...</span>
+                      </div>
+                    ) : (
+                      <div 
+                        ref={editorRef}
+                        className="bg-white rounded-lg border border-gray-200"
+                        style={{ minHeight: '200px' }}
                       />
-                    </Suspense>
+                    )}
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !formData.message.trim()}
                   className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 disabled:transform-none transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
