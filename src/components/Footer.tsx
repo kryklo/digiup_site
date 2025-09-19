@@ -107,9 +107,117 @@ const Footer = () => {
               </button>
             </div>
             <div className="font-body text-gray-600 text-sm leading-relaxed">
-              {Array.from({ length: 600 }, (_, i) => (
-                <span key={i}>polityka prywatności </span>
-              ))}
+              <div className="space-y-4">
+                <h2 className="text-xl font-heading font-bold text-gray-800 mb-4">Polityka Prywatności</h2>
+                <p className="font-semibold">DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">1. Informacje ogólne</h3>
+                    <p className="mb-2">Administratorem danych osobowych jest:</p>
+                    <div className="ml-4 space-y-1">
+                      <p>DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
+                      <p>Roszków, os. Zielony Zakątek 73/1</p>
+                      <p>63-200 Jarocin</p>
+                      <p>NIP: 6211763005 | REGON: 540342350</p>
+                    </div>
+                    <p className="mt-2 mb-1">Dane kontaktowe:</p>
+                    <div className="ml-4 space-y-1">
+                      <p>📞 +48 571 570 330</p>
+                      <p>📧 krystian@digiup.biz</p>
+                      <p>🌐 digiup.biz</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">2. Zakres zbieranych danych</h3>
+                    <p className="mb-2">Podczas korzystania ze strony digiup.biz oraz usług Administratora mogą być zbierane dane:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>podane w formularzu kontaktowym (imię, nazwisko, adres e-mail, numer telefonu, treść wiadomości),</li>
+                      <li>dane przekazywane w trakcie współpracy (np. dane do faktur: nazwa firmy, NIP, adres),</li>
+                      <li>dane techniczne związane z korzystaniem ze strony (adres IP, typ urządzenia, przeglądarka, pliki cookies).</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">3. Cele przetwarzania danych</h3>
+                    <p className="mb-2">Dane osobowe przetwarzane są w celach:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>obsługi zapytań kierowanych przez formularz kontaktowy,</li>
+                      <li>przygotowania i realizacji oferty usług,</li>
+                      <li>prowadzenia rozliczeń księgowych i podatkowych,</li>
+                      <li>zapewnienia prawidłowego działania strony internetowej,</li>
+                      <li>marketingu własnych usług (np. newsletter – tylko za zgodą użytkownika).</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">4. Podstawa prawna</h3>
+                    <p className="mb-2">Przetwarzanie odbywa się zgodnie z RODO (Rozporządzeniem 2016/679), w oparciu o:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>art. 6 ust. 1 lit. a – zgoda użytkownika,</li>
+                      <li>art. 6 ust. 1 lit. b – wykonanie umowy,</li>
+                      <li>art. 6 ust. 1 lit. c – obowiązki prawne (np. księgowe),</li>
+                      <li>art. 6 ust. 1 lit. f – prawnie uzasadniony interes administratora.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">5. Udostępnianie danych</h3>
+                    <p className="mb-2">Dane mogą być udostępniane wyłącznie:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>podmiotom wspierającym obsługę działalności (księgowość, hosting, IT),</li>
+                      <li>organom publicznym – gdy wymagają tego przepisy prawa.</li>
+                    </ul>
+                    <p className="mt-2">Dane nie są sprzedawane ani przekazywane podmiotom trzecim w celach marketingowych.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">6. Pliki cookies</h3>
+                    <p className="mb-2">Strona digiup.biz wykorzystuje pliki cookies w celu:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>zapewnienia poprawnego działania strony,</li>
+                      <li>analizy statystycznej ruchu (np. Google Analytics),</li>
+                      <li>działań marketingowych (np. piksel Facebooka, jeśli zostanie wdrożony).</li>
+                    </ul>
+                    <p className="mt-2">Użytkownik może wyłączyć cookies w ustawieniach swojej przeglądarki.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">7. Czas przechowywania danych</h3>
+                    <p className="mb-2">Dane przechowujemy:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>przez okres niezbędny do realizacji celu przetwarzania,</li>
+                      <li>w przypadku dokumentów księgowych – przez okres wynikający z przepisów prawa (np. 5 lat),</li>
+                      <li>do czasu wycofania zgody w przypadku danych przetwarzanych na jej podstawie.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">8. Prawa użytkowników</h3>
+                    <p className="mb-2">Użytkownik ma prawo do:</p>
+                    <ul className="ml-4 space-y-1 list-disc">
+                      <li>dostępu do swoich danych,</li>
+                      <li>sprostowania, usunięcia lub ograniczenia przetwarzania,</li>
+                      <li>sprzeciwu wobec przetwarzania,</li>
+                      <li>przenoszenia danych,</li>
+                      <li>cofnięcia zgody w dowolnym momencie,</li>
+                      <li>wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">9. Ochrona danych</h3>
+                    <p>Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby chronić dane przed nieuprawnionym dostępem, utratą, zniszczeniem lub nieuprawnioną modyfikacją.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-semibold text-gray-800 mb-2">10. Zmiany polityki</h3>
+                    <p className="mb-2">Administrator zastrzega sobie prawo do zmian niniejszej Polityki w przypadku aktualizacji oferty, przepisów prawa lub technologii.</p>
+                    <p>Aktualna wersja Polityki zawsze dostępna jest na stronie digiup.biz.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
