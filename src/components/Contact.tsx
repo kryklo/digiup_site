@@ -25,10 +25,13 @@ const Contact = () => {
         'template_unho3ac', // Sprawdź czy to jest poprawne Template ID
         {
           title: 'Nowe zapytanie z digiup.biz',
-          name: formData.name,
+          from_name: formData.name,
+          name: formData.name, // dodatkowe mapowanie
           time: new Date().toLocaleString('pl-PL'),
           message: formData.message,
-          email: formData.email
+          from_email: formData.email,
+          email: formData.email, // dodatkowe mapowanie
+          reply_to: formData.email
         },
         'fMKpRoT0Jpqg_SB87' // Sprawdź czy to jest poprawny Public Key
       );
