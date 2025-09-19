@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Linkedin, Github, X } from 'lucide-react';
+import { Mail, Phone, Linkedin, X } from 'lucide-react';
 
 const Footer = () => {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = React.useState(false);
@@ -24,11 +24,8 @@ const Footer = () => {
               integracjach systemów i rozwiązaniach szytych na miarę.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+              <a href="https://www.linkedin.com/in/krystian-kłopocki" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
                 <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
-                <Github size={20} />
               </a>
             </div>
           </div>
