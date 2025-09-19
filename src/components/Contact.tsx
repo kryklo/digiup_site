@@ -17,6 +17,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [isQuillLoaded, setIsQuillLoaded] = useState(false);
   const quillRef = useRef<any>(null);
   const editorRef = useRef<HTMLDivElement>(null);
@@ -91,6 +92,7 @@ const Contact = () => {
       );
       
       setSubmitStatus('success');
+      setShowSuccessPopup(true);
       setFormData({
         name: '',
         email: '',
@@ -101,6 +103,11 @@ const Contact = () => {
       if (quillRef.current) {
         quillRef.current.setContents([]);
       }
+      
+      // Hide success popup after 4 seconds
+      setTimeout(() => {
+        setShowSuccessPopup(false);
+      }, 4000);
     } catch (error) {
       console.error('EmailJS Error:', error);
       setSubmitStatus('error');
@@ -112,6 +119,21 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-white relative overflow-hidden">
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl animate-slide-in-right">
+          <div className="flex items-center space-x-3">
+            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+              <span className="text-green-500 text-sm font-bold">✓</span>
+            </div>
+            <div>
+              <p className="font-body font-semibold">Wiadomość wysłana!</p>
+              <p className="font-body text-sm text-green-100">Skontaktuję się z Tobą w ciągu 24h</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Background Dots */}
       <div className="absolute top-20 left-10 w-3 h-3 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
       <div className="absolute bottom-32 right-16 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
