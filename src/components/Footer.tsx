@@ -20,6 +20,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-white">DigiUp</span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed mb-4">
+            </p>
             <p className="font-body text-gray-400 max-w-md leading-relaxed mb-4">
               DigiUp IT Consulting & Solutions specjalizuje się w automatyzacji procesów biznesowych, 
               integracjach systemów i rozwiązaniach szytych na miarę.
