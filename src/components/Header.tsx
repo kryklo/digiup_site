@@ -30,13 +30,10 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 relative">
               <img 
-                src="/Original Logo Symbol.png" 
+                src="/Transparent Logo copy.png" 
                 alt="DigiUp" 
                 className="w-full h-full object-contain animate-pulse hover:animate-spin transition-transform duration-500"
               />
-            </div>
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              DigiUp
             </div>
           </div>
 

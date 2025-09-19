@@ -86,9 +86,9 @@ const Hero = () => {
               <div className="absolute inset-0 bg-cyan-100/30 rounded-full animate-pulse"></div>
               
               {/* Main Logo */}
-              <div className="relative w-64 h-64 flex items-center justify-center">
+              <div className="relative w-80 h-64 flex items-center justify-center">
                 <img 
-                  src="/Original Logo.png" 
+                  src="/Transparent Logo copy.png" 
                   alt="DigiUp IT Consulting & Solutions" 
                   className="w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
                 />

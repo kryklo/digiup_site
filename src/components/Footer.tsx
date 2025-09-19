@@ -10,15 +10,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10">
+              <div className="w-32 h-10">
                 <img 
-                  src="/Original Logo Symbol.png" 
+                  src="/Transparent Logo copy.png" 
                   alt="DigiUp" 
                   className="w-full h-full object-contain opacity-90"
                 />
-              </div>
-              <div className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                DigiUp
               </div>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed mb-4">
