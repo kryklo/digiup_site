@@ -125,6 +125,17 @@ const Contact = () => {
                 <p className="text-sm font-body text-gray-500 text-center">
                   * Pola wymagane. Odpowiem w ciągu 24 godzin.
                 </p>
+                
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs font-body text-gray-600 leading-relaxed">
+                  <p className="font-semibold text-blue-800 mb-2">Klauzula RODO</p>
+                  <p>
+                    Administratorem danych osobowych jest DigiUp IT Consulting & Solutions Krystian Kłopocki, 
+                    os. Zielony Zakątek 73/1, 63-200 Jarocin, NIP 6211763005. Dane podane w formularzu będą 
+                    przetwarzane w celu obsługi zapytania. Masz prawo dostępu do treści swoich danych oraz ich 
+                    poprawiania, usunięcia lub ograniczenia przetwarzania. Podanie danych jest dobrowolne, 
+                    ale niezbędne do obsługi zapytania.
+                  </p>
+                </div>
               </form>
             </div>
           </div>

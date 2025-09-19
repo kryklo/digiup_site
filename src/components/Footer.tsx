@@ -3,6 +3,7 @@ import { Mail, Phone, Linkedin, Github, X } from 'lucide-react';
 
 const Footer = () => {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = React.useState(false);
+  const [showTerms, setShowTerms] = React.useState(false);
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -88,6 +89,13 @@ const Footer = () => {
               className="font-body text-gray-400 hover:text-cyan-400 text-sm underline transition-colors duration-200"
             >
               Polityka prywatności
+            </button>
+            <span className="text-gray-400 mx-2">|</span>
+            <button
+              onClick={() => setShowTerms(true)}
+              className="font-body text-gray-400 hover:text-cyan-400 text-sm underline transition-colors duration-200"
+            >
+              Regulamin
             </button>
           </div>
         </div>
@@ -216,6 +224,40 @@ const Footer = () => {
                     <p>Aktualna wersja Polityki zawsze dostępna jest na stronie digiup.biz.</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Terms of Service Popup */}
+      {showTerms && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] relative">
+            <div className="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 z-10">
+              <h2 className="text-2xl font-heading font-bold text-gray-800">Regulamin strony internetowej DigiUp</h2>
+              <button
+                onClick={() => setShowTerms(false)}
+                className="text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className="p-6 pt-4 font-body text-gray-600 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
+              <div className="space-y-4">
+                <p>Strona digiup.biz prowadzona jest przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
+                
+                <p>Strona ma charakter informacyjny i prezentuje ofertę usług z zakresu doradztwa i rozwiązań IT.</p>
+                
+                <p>Korzystanie ze strony jest bezpłatne i dobrowolne.</p>
+                
+                <p>Zabronione jest dostarczanie treści bezprawnych oraz podejmowanie działań mogących zakłócić działanie strony.</p>
+                
+                <p>Administrator nie ponosi odpowiedzialności za wykorzystanie informacji ze strony przez użytkowników.</p>
+                
+                <p>Prawa autorskie do treści i materiałów zamieszczonych na stronie przysługują DigiUp, chyba że wyraźnie wskazano inaczej.</p>
+                
+                <p>W sprawach nieuregulowanych niniejszym Regulaminem stosuje się przepisy prawa polskiego.</p>
               </div>
             </div>
           </div>
