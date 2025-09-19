@@ -55,6 +55,11 @@
   animation: spin-slow 20s linear infinite;
 }
 
+/* Logo rotation on hover */
+.group:hover .group-hover\:rotate-360 {
+  transform: rotate(360deg);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
