@@ -96,19 +96,18 @@ const Footer = () => {
       {/* Privacy Policy Popup */}
       {showPrivacyPolicy && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] overflow-y-auto p-6">
-            <div className="flex justify-between items-center mb-4">
+          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] relative">
+            <div className="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 z-10">
               <h2 className="text-2xl font-heading font-bold text-gray-800">Polityka prywatności</h2>
               <button
                 onClick={() => setShowPrivacyPolicy(false)}
-                className="text-gray-500 hover:text-gray-700 p-2"
+                className="text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
               >
                 <X size={24} />
               </button>
             </div>
-            <div className="font-body text-gray-600 text-sm leading-relaxed">
+            <div className="p-6 pt-4 font-body text-gray-600 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
               <div className="space-y-4">
-                <h2 className="text-xl font-heading font-bold text-gray-800 mb-4">Polityka Prywatności</h2>
                 <p className="font-semibold">DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
                 
                 <div className="space-y-4">
