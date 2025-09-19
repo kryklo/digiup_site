@@ -86,7 +86,7 @@ const Hero = () => {
               {/* Main Logotype */}
               <div className="relative w-96 h-64 flex items-center justify-center">
                 <img 
-                  src="/image.png" 
+                  src="/Transparent LogoType.png" 
                   alt="DigiUp IT Consulting & Solutions" 
                   className="w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
                 />
