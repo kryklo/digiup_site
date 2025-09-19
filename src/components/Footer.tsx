@@ -184,7 +184,8 @@ const Footer = () => {
                       <li>analizy statystycznej ruchu (np. Google Analytics),</li>
                       <li>działań marketingowych (np. piksel Facebooka, jeśli zostanie wdrożony).</li>
                     </ul>
-                    <p className="mt-2">Użytkownik może wyłączyć cookies w ustawieniach swojej przeglądarki.</p>
+                    <p className="mt-2 mb-2">Wysyłając formularz kontaktowy, automatycznie wyrażasz zgodę na wykorzystanie niezbędnych plików cookies do obsługi Twojego zapytania.</p>
+                    <p>Użytkownik może wyłączyć cookies w ustawieniach swojej przeglądarki, jednak może to wpłynąć na funkcjonalność formularza kontaktowego.</p>
                   </div>
 
                   <div>
