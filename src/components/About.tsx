@@ -48,8 +48,8 @@ const About = () => {
                 <strong className="text-gray-800"> DigiUp IT Consulting & Solutions</strong>.
               </p>
               <p className="leading-relaxed">
-                Od ponad <strong className="text-cyan-600">15 lat</strong> łączę technologię z biznesem. Mam doświadczenie w ERP (BPSC), 
-                systemach produkcji przepływowej (SysOW), integracjach EDI i automatyzacjach procesów.
+                Od ponad <strong className="text-cyan-600">15 lat</strong> łączę technologię z biznesem. Mam doświadczenie w ERP, 
+                systemach produkcji przepływowej, integracjach EDI i automatyzacjach procesów.
               </p>
               <p className="leading-relaxed">
                 Lubię <strong className="text-gray-800">proste i szybkie usprawnienia</strong>, które natychmiast odciążają ludzi od 
