@@ -47,8 +47,7 @@ const Hero = () => {
           }`}>
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-5xl font-heading font-bold leading-tight text-gray-800">
-                Automatyzacje i aplikacje
-                <br />
+                Digitalizacja
                 <span className="text-cyan-600">
                   na miarę Twoich potrzeb
                 </span>
