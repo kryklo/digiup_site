@@ -14,6 +14,12 @@ const About = () => {
       <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
       <div className="absolute top-3/4 left-1/3 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
+      {/* Network connections */}
+      <div className="network-line top-24 right-12" style={{ width: '90px', transform: 'rotate(-20deg)' }}></div>
+      <div className="network-line bottom-36 left-24" style={{ width: '110px', transform: 'rotate(25deg)' }}></div>
+      <div className="network-line-vertical top-1/2 right-1/4"></div>
+      <div className="network-line-diagonal top-1/4 left-12" style={{ width: '50px', transform: 'rotate(60deg)' }}></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
