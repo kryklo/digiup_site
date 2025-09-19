@@ -74,7 +74,7 @@ const Contact = () => {
     
     try {
       await emailjs.send(
-        'service_digiup',
+        'service_z3io2d5',
         'template_unho3ac',
         {
           title: 'Nowe zapytanie z digiup.biz',
