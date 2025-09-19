@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Mail, Phone, MapPin, Send, Building } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import dynamic from 'next/dynamic';
-
-// Dynamically import ReactQuill to avoid SSR issues
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
+
+// Dynamically import ReactQuill
+const ReactQuill = lazy(() => import('react-quill'));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -174,16 +173,27 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none font-body"
-                    placeholder="Opisz swój problem, projekt lub pytanie..."
-                  ></textarea>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setIsEditorExpanded(!isEditorExpanded)}
+                      className="absolute top-2 right-2 z-10 px-3 py-1 text-xs bg-cyan-500 text-white rounded hover:bg-cyan-600 transition-colors"
+                    >
+                      {isEditorExpanded ? 'Zwiń' : 'Rozwiń edytor'}
+                    </button>
+                    <Suspense fallback={<div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center">Ładowanie edytora...</div>}>
+                      <ReactQuill
+                        value={formData.messageHtml}
+                        onChange={handleEditorChange}
+                        modules={modules}
+                        formats={formats}
+                        placeholder="Opisz swój problem, projekt lub pytanie..."
+                        className={`bg-white rounded-lg transition-all duration-300 ${
+                          isEditorExpanded ? 'editor-expanded' : 'editor-normal'
+                        }`}
+                      />
+                    </Suspense>
+                  </div>
                 </div>
 
                 <button
