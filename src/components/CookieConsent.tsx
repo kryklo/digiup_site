@@ -8,26 +8,39 @@ const CookieConsent = () => {
   useEffect(() => {
     const consent = localStorage.getItem('digiup-cookie-consent');
     if (!consent) {
-      // Show consent after 2 seconds
+      // Show consent after 1 second only if no previous consent
       const timer = setTimeout(() => {
-        setShowConsent(true);
-      }, 2000);
+        // Double check that consent wasn't given in another tab
+        const currentConsent = localStorage.getItem('digiup-cookie-consent');
+        if (!currentConsent) {
+          setShowConsent(true);
+        }
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, []);
 
   const acceptAll = () => {
-    localStorage.setItem('digiup-cookie-consent', 'all');
+    localStorage.setItem('digiup-cookie-consent', JSON.stringify({
+      type: 'all',
+      timestamp: new Date().toISOString()
+    }));
     setShowConsent(false);
   };
 
   const acceptNecessary = () => {
-    localStorage.setItem('digiup-cookie-consent', 'necessary');
+    localStorage.setItem('digiup-cookie-consent', JSON.stringify({
+      type: 'necessary', 
+      timestamp: new Date().toISOString()
+    }));
     setShowConsent(false);
   };
 
   const rejectAll = () => {
-    localStorage.setItem('digiup-cookie-consent', 'rejected');
+    localStorage.setItem('digiup-cookie-consent', JSON.stringify({
+      type: 'rejected',
+      timestamp: new Date().toISOString()
+    }));
     setShowConsent(false);
   };
 
