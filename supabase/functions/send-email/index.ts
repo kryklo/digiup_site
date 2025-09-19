@@ -10,6 +10,7 @@ interface EmailRequest {
   company?: string
   email: string
   description: string
+  recaptchaToken: string
 }
 
 serve(async (req) => {
@@ -28,10 +29,10 @@ serve(async (req) => {
     }
 
     // Parse request body
-    const { name, company, email, description }: EmailRequest = await req.json()
+    const { name, company, email, description, recaptchaToken }: EmailRequest = await req.json()
 
     // Validate required fields
-    if (!name || !email || !description) {
+    if (!name || !email || !description || !recaptchaToken) {
       return new Response('Missing required fields', { 
         status: 400, 
         headers: corsHeaders 
@@ -42,6 +43,34 @@ serve(async (req) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return new Response('Invalid email format', { 
+        status: 400, 
+        headers: corsHeaders 
+      })
+    }
+
+    // Verify reCAPTCHA
+    const recaptchaSecret = Deno.env.get('RECAPTCHA_SECRET_KEY')
+    if (!recaptchaSecret) {
+      console.error('reCAPTCHA secret key not configured')
+      return new Response('Server configuration error', { 
+        status: 500, 
+        headers: corsHeaders 
+      })
+    }
+
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
+    })
+
+    const recaptchaResult = await recaptchaResponse.json()
+    
+    if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+      console.log('reCAPTCHA verification failed:', recaptchaResult)
+      return new Response('reCAPTCHA verification failed', { 
         status: 400, 
         headers: corsHeaders 
       })
@@ -115,7 +144,7 @@ Wiadomość wysłana automatycznie z digiup.biz
     }
 
     // Log successful email (for monitoring)
-    console.log(`Email sent successfully to ${FIXED_RECIPIENT} from ${email}`)
+    console.log(`Email sent successfully to ${FIXED_RECIPIENT} from ${email} (reCAPTCHA score: ${recaptchaResult.score})`)
 
     return new Response(
       JSON.stringify({ 
