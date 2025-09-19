@@ -29,8 +29,8 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="w-10 h-10 relative group cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <img 
                 src="/Wordpress Transparent.png" 
