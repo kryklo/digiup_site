@@ -164,16 +164,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="bg-cyan-50 p-6 rounded-xl border border-cyan-100">
-              <h4 className="font-heading font-semibold text-gray-800 mb-2">Kalendarz online</h4>
-              <p className="text-sm font-body text-gray-600 mb-4">
-                Umów się na bezpłatną konsultację bezpośrednio w kalendarzu
-              </p>
-              <button className="w-full bg-white hover:bg-gray-50 text-gray-800 px-4 py-2 rounded-lg border border-gray-200 text-sm font-body font-medium transition-all duration-200">
-                Otwórz kalendarz Calendly
-              </button>
-            </div>
           </div>
         </div>
       </div>
