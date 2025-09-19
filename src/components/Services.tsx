@@ -8,8 +8,8 @@ const Services = () => {
       title: 'Automatyzacje procesów',
       subtitle: 'Integracje systemów i eliminacja powtarzalnej pracy',
       items: [
-        'Integracje systemów (ERP, WMS, EDI)',
-        'Skrypty i roboty eliminujące powtarzalne czynności',
+        'Integracje systemów (ERP, MES, EDI)',
+        'Skrypty i roboty eliminujące powtarzalne czynności, workflows w n8n',
         'Harmonogramy, alerty, logowanie błędów'
       ],
       color: 'bg-purple-100',
