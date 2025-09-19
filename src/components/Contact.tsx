@@ -121,14 +121,14 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-white relative overflow-hidden">
       {/* Success Popup */}
       {showSuccessPopup && (
-        <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl animate-slide-in-right">
-          <div className="flex items-center space-x-3">
-            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-              <span className="text-green-500 text-sm font-bold">✓</span>
-            </div>
-            <div>
-              <p className="font-body font-semibold">Wiadomość wysłana!</p>
-              <p className="font-body text-sm text-green-100">Skontaktuję się z Tobą w ciągu 24h</p>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-green-500 text-white px-8 py-6 rounded-xl shadow-2xl animate-slide-up max-w-md mx-4">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-green-500 text-2xl font-bold">✓</span>
+              </div>
+              <h3 className="font-body font-bold text-xl mb-2">Wiadomość wysłana!</h3>
+              <p className="font-body text-green-100">Skontaktuję się z Tobą w ciągu 24 godzin</p>
             </div>
           </div>
         </div>
