@@ -49,7 +49,7 @@ const Contact = () => {
             [{ 'color': [] }, { 'background': [] }],
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             [{ 'indent': '-1'}, { 'indent': '+1' }],
-            ['link'],
+            ['link', 'image'],
             ['clean']
           ]
         }
@@ -57,14 +57,8 @@ const Contact = () => {
 
       // Handle content changes
       quillRef.current.on('text-change', () => {
-        // Get text content without images to avoid base64 bloat
-        const text = quillRef.current.getText();
         const html = quillRef.current.root.innerHTML;
-        
-        // Remove any base64 images from HTML to prevent huge payloads
-        const cleanHtml = html.replace(/<img[^>]*src="data:image[^"]*"[^>]*>/g, '[Obraz usunięty - wyślij jako załącznik na email]');
-        
-        setFormData(prev => ({ ...prev, message: cleanHtml }));
+        setFormData(prev => ({ ...prev, message: html }));
       });
     }
   }, [isQuillLoaded]);
@@ -78,6 +72,9 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      // Compress images in the message before sending
+      const compressedMessage = await compressImagesInHtml(formData.message);
+      
       await emailjs.send(
         'service_z3io2d5',
         'template_unho3ac',
@@ -86,7 +83,7 @@ const Contact = () => {
           from_name: formData.name,
           name: formData.name,
           time: new Date().toLocaleString('pl-PL'),
-          message: formData.message,
+          message: compressedMessage,
           from_email: formData.email,
           email: formData.email,
           reply_to: formData.email,
@@ -121,6 +118,46 @@ const Contact = () => {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 5000);
     }
+  };
+
+  // Function to compress images in HTML content
+  const compressImagesInHtml = async (html: string): Promise<string> => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const images = doc.querySelectorAll('img[src^="data:image"]');
+    
+    for (const img of images) {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = new Image();
+        
+        await new Promise((resolve, reject) => {
+          image.onload = () => {
+            // Calculate new dimensions (max 800px width)
+            const maxWidth = 800;
+            const ratio = Math.min(maxWidth / image.width, maxWidth / image.height);
+            canvas.width = image.width * ratio;
+            canvas.height = image.height * ratio;
+            
+            // Draw and compress
+            ctx?.drawImage(image, 0, 0, canvas.width, canvas.height);
+            const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+            img.setAttribute('src', compressedDataUrl);
+            resolve(null);
+          };
+          image.onerror = reject;
+          image.src = img.getAttribute('src') || '';
+        });
+      } catch (error) {
+        console.warn('Failed to compress image:', error);
+        // If compression fails, replace with placeholder
+        img.setAttribute('src', 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk9icmF6PC90ZXh0Pjwvc3ZnPg==');
+        img.setAttribute('alt', 'Obraz (skompresowany)');
+      }
+    }
+    
+    return doc.body.innerHTML;
   };
 
   return (
@@ -222,9 +259,6 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
-                  <p className="text-xs font-body text-gray-500 mb-2">
-                    💡 Jeśli chcesz wysłać obrazy lub pliki, wyślij je jako załączniki na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
-                  </p>
                   <div className="quill-wrapper">
                     {!isQuillLoaded ? (
                       <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
@@ -238,6 +272,9 @@ const Contact = () => {
                       />
                     )}
                   </div>
+                  <p className="text-xs font-body text-gray-500 mt-2">
+                    💡 Obrazy są automatycznie kompresowane. Dla dużych plików zalecamy wysłanie jako załączniki na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
+                  </p>
                 </div>
 
                 <button
