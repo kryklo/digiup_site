@@ -49,7 +49,7 @@ const Contact = () => {
             [{ 'color': [] }, { 'background': [] }],
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             [{ 'indent': '-1'}, { 'indent': '+1' }],
-            ['link', 'image'],
+            ['link'],
             ['clean']
           ]
         }
@@ -57,9 +57,14 @@ const Contact = () => {
 
       // Handle content changes
       quillRef.current.on('text-change', () => {
-        const html = quillRef.current.root.innerHTML;
+        // Get text content without images to avoid base64 bloat
         const text = quillRef.current.getText();
-        setFormData(prev => ({ ...prev, message: html }));
+        const html = quillRef.current.root.innerHTML;
+        
+        // Remove any base64 images from HTML to prevent huge payloads
+        const cleanHtml = html.replace(/<img[^>]*src="data:image[^"]*"[^>]*>/g, '[Obraz usunięty - wyślij jako załącznik na email]');
+        
+        setFormData(prev => ({ ...prev, message: cleanHtml }));
       });
     }
   }, [isQuillLoaded]);
@@ -217,6 +222,9 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
+                  <p className="text-xs font-body text-gray-500 mb-2">
+                    💡 Jeśli chcesz wysłać obrazy lub pliki, wyślij je jako załączniki na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
+                  </p>
                   <div className="quill-wrapper">
                     {!isQuillLoaded ? (
                       <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
