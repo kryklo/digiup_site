@@ -72,49 +72,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Check message size and warn about large images
-    const messageSize = new Blob([formData.message]).size;
-    const maxSize = 50000; // 50KB limit for EmailJS
-    
-    if (messageSize > maxSize) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      // Show custom error for large content
-      const errorDiv = document.querySelector('.size-error');
-      if (errorDiv) {
-        errorDiv.remove();
-      }
-      const form = document.querySelector('form');
-      if (form) {
-        const errorElement = document.createElement('div');
-        errorElement.className = 'size-error mb-6 p-4 bg-red-50 border border-red-200 rounded-lg';
-        errorElement.innerHTML = `
-          <p class="font-body text-red-800 text-sm">
-            ❌ Wiadomość jest za duża (${Math.round(messageSize/1024)}KB). Usuń lub zmniejsz obrazy, lub wyślij je jako załączniki na: 
-            <a href="mailto:krystian@digiup.biz" class="underline ml-1">krystian@digiup.biz</a>
-          </p>
-        `;
-        form.insertBefore(errorElement, form.firstChild);
-      }
-      return;
-    }
-    
     try {
-      // Strip images from message for EmailJS and create a clean text version
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = formData.message;
-      
-      // Remove images and replace with placeholder text
-      const images = tempDiv.querySelectorAll('img');
-      images.forEach((img, index) => {
-        const placeholder = document.createElement('p');
-        placeholder.innerHTML = `<strong>[OBRAZ ${index + 1} - usunięty z powodu ograniczeń email]</strong>`;
-        img.parentNode?.replaceChild(placeholder, img);
-      });
-      
-      const cleanMessage = tempDiv.innerHTML;
-      const hasImages = images.length > 0;
-      
       await emailjs.send(
         'service_z3io2d5',
         'template_unho3ac',
@@ -123,7 +81,7 @@ const Contact = () => {
           from_name: formData.name,
           name: formData.name,
           time: new Date().toLocaleString('pl-PL'),
-          message: cleanMessage + (hasImages ? `\n\n--- UWAGA ---\nWiadomość zawierała ${images.length} obraz(ów), które zostały usunięte z powodu ograniczeń email. Klient może przesłać je osobno na krystian@digiup.biz` : ''),
+          message: formData.message,
           from_email: formData.email,
           email: formData.email,
           reply_to: formData.email,
@@ -135,13 +93,6 @@ const Contact = () => {
       
       setSubmitStatus('success');
       setShowSuccessPopup(true);
-      
-      // Show additional message if images were removed
-      if (hasImages) {
-        setTimeout(() => {
-          alert(`✅ Wiadomość wysłana! \n\n📷 Uwaga: ${images.length} obraz(ów) zostało usuniętych z powodu ograniczeń email. Możesz przesłać je osobno na: krystian@digiup.biz`);
-        }, 1000);
-      }
       
       setFormData({
         name: '',
@@ -164,13 +115,6 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 5000);
-      // Remove size error if it exists
-      setTimeout(() => {
-        const errorDiv = document.querySelector('.size-error');
-        if (errorDiv) {
-          errorDiv.remove();
-        }
-      }, 5000);
     }
   };
 
@@ -273,15 +217,6 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
                     Wiadomość *
                   </label>
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-2">
-                    <p className="text-xs font-body text-yellow-800">
-                      💡 <strong>Tip:</strong> Możesz formatować tekst i wklejać małe obrazy. 
-                      <br />
-                      📷 <strong>Duże obrazy:</strong> Wyślij je osobno na <a href="mailto:krystian@digiup.biz" className="underline">krystian@digiup.biz</a>
-                      <br />
-                      ⚠️ Obrazy większe niż 50KB będą automatycznie usunięte z wiadomości
-                    </p>
-                  </div>
                   <div className="quill-wrapper">
                     {!isQuillLoaded ? (
                       <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
