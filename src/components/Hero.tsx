@@ -39,10 +39,10 @@ const Hero = () => {
       <div className="absolute top-40 right-1/3 w-3 h-3 bg-purple-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center px-2 sm:px-0">
           
           {/* Content */}
-          <div className={`space-y-8 transform transition-all duration-1000 ${
+          <div className={`space-y-8 transform transition-all duration-1000 px-2 sm:px-0 ${
             isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
           }`}>
             <div className="space-y-6">

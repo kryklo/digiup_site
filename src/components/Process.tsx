@@ -39,7 +39,7 @@ const Process = () => {
       <div className="absolute top-2/3 left-16 w-4 h-4 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 px-2 sm:px-0">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
             Jak pracuję
           </h2>
@@ -48,7 +48,7 @@ const Process = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 px-2 sm:px-0">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
               {/* Connection Line */}
@@ -56,7 +56,7 @@ const Process = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-12 h-0.5 bg-cyan-300 transform translate-x-4"></div>
               )}
               
-              <div className="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-gray-100">
+              <div className="relative bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-gray-100">
                 {/* Step Number */}
                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                   {step.number}
@@ -85,7 +85,7 @@ const Process = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto">
+          <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-100 max-w-4xl mx-auto mx-4 sm:mx-auto">
             <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
               Gotowy na pierwszą rozmowę?
             </h3>

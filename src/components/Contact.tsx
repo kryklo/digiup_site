@@ -188,17 +188,17 @@ const Contact = () => {
       <div className="absolute top-3/4 right-20 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 px-2 sm:px-0">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
             Kontakt
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-12 px-2 sm:px-0">
           
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-50 p-8 rounded-xl border border-gray-100">
+            <div className="bg-gray-50 p-6 sm:p-8 rounded-xl border border-gray-100">
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
@@ -314,7 +314,7 @@ const Contact = () => {
           
           {/* Company Info */}
           <div className="space-y-8">
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
+            <div className="bg-white p-6 sm:p-6 rounded-xl border border-gray-100">
               <h3 className="text-lg font-heading font-bold text-gray-800 mb-4">
                 Dane firmy
               </h3>

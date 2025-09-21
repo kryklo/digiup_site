@@ -68,7 +68,7 @@ const Services = () => {
       <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 px-2 sm:px-0">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
             Usługi
           </h2>
@@ -77,11 +77,11 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 px-2 sm:px-0">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 rounded-xl bg-white hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+              className="group p-6 sm:p-8 rounded-xl bg-white hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100"
             >
               <div className="flex items-start space-x-6">
                 <div className={`p-4 rounded-xl ${service.color} ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}>

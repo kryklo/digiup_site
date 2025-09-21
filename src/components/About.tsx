@@ -15,7 +15,7 @@ const About = () => {
       <div className="absolute top-3/4 left-1/3 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center px-2 sm:px-0">
           
           {/* Photo */}
           <div className="relative">

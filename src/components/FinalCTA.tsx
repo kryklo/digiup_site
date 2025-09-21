@@ -18,7 +18,7 @@ const FinalCTA = () => {
       <div className="absolute top-3/4 right-20 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center">
+        <div className="text-center px-2 sm:px-0">
           <div className="mb-8">
             <Calendar size={64} className="text-cyan-600 mx-auto mb-6 animate-pulse" />
             <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-6 leading-tight">

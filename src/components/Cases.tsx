@@ -43,7 +43,7 @@ const Cases = () => {
       <div className="absolute top-2/3 left-16 w-4 h-4 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 px-2 sm:px-0">
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
             Case Studies
           </h2>
@@ -52,11 +52,11 @@ const Cases = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 px-2 sm:px-0">
           {cases.map((case_, index) => (
             <div
               key={index}
-              className="group p-8 rounded-xl bg-white hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+              className="group p-6 sm:p-8 rounded-xl bg-white hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100"
             >
               <div className="mb-6">
                 <div className="flex items-center space-x-4 mb-4">
