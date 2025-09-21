@@ -29,7 +29,7 @@ const FinalCTA = () => {
 
           <p className="text-lg font-body text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
             A może nie masz pomysłu, ale wiesz, że chcesz coś zmienić? 
-            <br className="hidden sm:block" />
+            <br />
             <strong>Zapraszam do kontaktu.</strong>
           </p>
 
