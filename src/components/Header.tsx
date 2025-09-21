@@ -42,9 +42,9 @@ const Header = () => {
               <img 
                 src="/Wordpress Transparent.png" 
                 alt="DigiUp" 
-                className={`w-full h-full object-contain transition-transform duration-500 ease-in-out ${
+                className={`w-full h-full object-contain transition-transform duration-500 ease-in-out group-hover:rotate-360 ${
                   isLogoRotating ? 'rotate-360' : ''
-                } group-hover:rotate-360`}
+                }`}
               />
             </button>
           </div>
