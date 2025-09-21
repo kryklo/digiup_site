@@ -273,7 +273,7 @@ const Contact = () => {
                     )}
                   </div>
                   <p className="text-xs font-body text-gray-500 mt-2">
-                    💡 Obrazy są automatycznie kompresowane. Dla dużych plików zalecamy wysłanie jako załączniki na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
+                    💡 Obrazy są automatycznie kompresowane. Dla bardzo dużych plików zalecam wysłanie jako załącznik na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
                   </p>
                 </div>
 
