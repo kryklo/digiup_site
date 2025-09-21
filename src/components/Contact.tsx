@@ -306,7 +306,7 @@ const Contact = () => {
                   </p>
                 </div>
                 <div className="text-xs font-body text-gray-500 text-center">
-                  <p>Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych w celu udzielenia odpowiedzi na zapytanie, zgodnie z naszą polityką prywatności. Dane będą przetwarzane przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
+                  <p>Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych w celu udzielenia odpowiedzi na zapytanie, zgodnie z polityką prywatności. Dane będą przetwarzane przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
                 </div>
               </form>
             </div>
