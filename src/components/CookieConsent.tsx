@@ -56,7 +56,7 @@ const CookieConsent = () => {
                 <Cookie className="text-cyan-600" size={24} />
               </div>
               <h3 className="text-xl font-heading font-bold text-gray-800">
-                Używamy plików cookies
+                Używam plików cookies
               </h3>
             </div>
             <button
@@ -69,8 +69,8 @@ const CookieConsent = () => {
 
           <div className="mb-6">
             <p className="font-body text-gray-600 mb-4">
-              Nasza strona używa plików cookies, aby zapewnić najlepsze doświadczenia użytkownika. 
-              Cookies pomagają nam analizować ruch na stronie i dostosowywać treści.
+              Strona używa plików cookies, aby zapewnić najlepsze doświadczenia użytkownika. 
+              Cookies pomagają mi analizować ruch na stronie i dostosowywać treści.
             </p>
 
             {showDetails && (
