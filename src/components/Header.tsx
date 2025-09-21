@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLogoRotating, setIsLogoRotating] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,12 @@ const Header = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    setIsLogoRotating(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Reset rotation after animation completes
+    setTimeout(() => setIsLogoRotating(false), 500);
+  };
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
@@ -29,13 +36,15 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={handleLogoClick}
               className="w-10 h-10 relative group focus:outline-none"
             >
               <img 
                 src="/Wordpress Transparent.png" 
                 alt="DigiUp" 
-                className="w-full h-full object-contain group-hover:rotate-360 transition-transform duration-500 ease-in-out"
+                className={`w-full h-full object-contain transition-transform duration-500 ease-in-out ${
+                  isLogoRotating ? 'rotate-360' : ''
+                } group-hover:rotate-360`}
               />
             </button>
           </div>
