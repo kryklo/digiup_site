@@ -48,9 +48,9 @@ const Process = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 px-2 sm:px-0">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 px-2 sm:px-0 justify-items-center">
           {steps.map((step, index) => (
-            <div key={index} className="relative group">
+            <div key={index} className="relative group w-full max-w-sm lg:max-w-none">
               {/* Connection Line */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-16 left-full w-12 h-0.5 bg-cyan-300 transform translate-x-4"></div>
