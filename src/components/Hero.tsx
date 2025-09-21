@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="absolute top-40 right-1/3 w-3 h-3 bg-purple-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center px-2 sm:px-0">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center px-2 sm:px-0">
           
           {/* Content */}
           <div className={`space-y-8 transform transition-all duration-1000 px-2 sm:px-0 ${
@@ -99,7 +99,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-cyan-100/30 rounded-full animate-pulse"></div>
               
               {/* Main Logotype */}
-              <div className="relative w-96 h-64 flex items-center justify-center">
+              <div className="relative w-80 h-48 sm:w-96 sm:h-64 flex items-center justify-center">
                 <img 
                   src="/Transparent LogoType.png" 
                   alt="DigiUp IT Consulting & Solutions" 
@@ -112,7 +112,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <button
           onClick={(e) => {
             e.preventDefault();
