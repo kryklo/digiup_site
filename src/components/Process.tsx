@@ -56,9 +56,9 @@ const Process = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-12 h-0.5 bg-cyan-300 transform translate-x-4"></div>
               )}
               
-              <div className="relative bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-gray-100">
+              <div className="relative bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transform sm:hover:scale-105 transition-all duration-300 border border-gray-100 ml-6 sm:ml-0">
                 {/* Step Number */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="absolute -top-4 -left-3 sm:-left-4 w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                   {step.number}
                 </div>
 
