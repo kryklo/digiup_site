@@ -52,11 +52,14 @@ const DarkModeToggle = () => {
     const nextMode = modes[(currentIndex + 1) % modes.length];
     
     setMode(nextMode);
-    setDisplayMode(nextMode);
-    setDisplayMode(nextMode);
     localStorage.setItem('digiup-theme-mode', nextMode);
     applyTheme(nextMode, systemPrefersDark);
   };
+
+  // Synchronizuj displayMode z mode
+  useEffect(() => {
+    setDisplayMode(mode);
+  }, [mode]);
 
   const getCurrentIcon = () => {
     switch (displayMode) {
