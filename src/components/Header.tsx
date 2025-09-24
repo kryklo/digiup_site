@@ -40,12 +40,19 @@ const Header = () => {
               onClick={handleLogoClick}
               className="w-10 h-10 relative group focus:outline-none"
             >
-              {/* Subtle backdrop for dark mode only */}
-              <div className="absolute inset-0 dark:bg-white/30 rounded-full blur-sm"></div>
+              {/* Light mode logo */}
               <img 
                 src="/Wordpress Transparent.png" 
                 alt="DigiUp" 
-                className={`relative z-10 w-full h-full object-contain transition-transform duration-500 ease-in-out group-hover:rotate-360 ${
+                className={`dark:hidden w-full h-full object-contain transition-transform duration-500 ease-in-out group-hover:rotate-360 ${
+                  isLogoRotating ? 'rotate-360' : ''
+                }`}
+              />
+              {/* Dark mode logo */}
+              <img 
+                src="/Wordpress TransparentDarkMode.png" 
+                alt="DigiUp" 
+                className={`hidden dark:block w-full h-full object-contain transition-transform duration-500 ease-in-out group-hover:rotate-360 ${
                   isLogoRotating ? 'rotate-360' : ''
                 }`}
               />
