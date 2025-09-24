@@ -9,7 +9,7 @@ const Services = () => {
       subtitle: 'Integracje systemów i eliminacja powtarzalnej pracy',
       items: [
         'Integracje systemów (ERP, WMS, MES, EDI)',
-        'Skrypty i roboty eliminujące powtarzalne czynności, workflows w n8n',
+        'Skrypty i roboty eliminujące powtarzalne czynności',
         'Harmonogramy, alerty, logowanie błędów',
         'ETL: pobieranie, transformacja i ładowanie danych z różnych źródeł',
         'Workflows w n8n – automatyzacje bez kodu i szybkie PoC'
