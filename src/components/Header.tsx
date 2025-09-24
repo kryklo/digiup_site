@@ -113,7 +113,7 @@ const Header = () => {
               ))}
               <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex items-center justify-between">
-                  <span className="font-body text-sm text-gray-600 dark:text-gray-400">Tryb ciemny</span>
+                  <span className="font-body text-sm text-gray-600 dark:text-gray-400">Motyw</span>
                   <DarkModeToggle />
                 </div>
               </div>
