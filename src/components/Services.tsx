@@ -5,12 +5,14 @@ const Services = () => {
   const services = [
     {
       icon: Settings,
-      title: 'Automatyzacje procesów',
+      title: 'Automatyzacje i integracje',
       subtitle: 'Integracje systemów i eliminacja powtarzalnej pracy',
       items: [
-        'Integracje systemów (ERP, MES, EDI)',
+        'Integracje systemów (ERP, WMS, MES, EDI)',
         'Skrypty i roboty eliminujące powtarzalne czynności, workflows w n8n',
-        'Harmonogramy, alerty, logowanie błędów'
+        'Harmonogramy, alerty, logowanie błędów',
+        'ETL: pobieranie, transformacja i ładowanie danych z różnych źródeł',
+        'Workflows w n8n – automatyzacje bez kodu i szybkie PoC'
       ],
       color: 'bg-purple-100',
       iconColor: 'text-purple-600'
