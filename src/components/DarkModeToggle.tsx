@@ -90,6 +90,7 @@ const DarkModeToggle = () => {
   return (
     <button
       onClick={cycleMode}
+      key={`theme-${mode}`}
       className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-1 dark:focus:ring-offset-gray-800"
       aria-label={getNextLabel()}
       title={getNextLabel()}
@@ -97,7 +98,7 @@ const DarkModeToggle = () => {
       <div className="flex items-center justify-center w-5 h-5">
         {getCurrentIcon()}
       </div>
-      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:inline">
+      <span key={`label-${mode}`} className="text-sm font-medium text-gray-700 dark:text-gray-300">
         {getLabel()}
       </span>
     </button>
