@@ -100,13 +100,17 @@ const Hero = () => {
               
               {/* Main Logotype */}
               <div className="relative w-80 h-48 sm:w-96 sm:h-64 flex items-center justify-center">
-                {/* Subtle backdrop for dark mode only */}
-                <div className="absolute inset-8 dark:bg-gradient-to-r dark:from-transparent dark:via-white/30 dark:to-transparent rounded-full blur-sm animate-float transform scale-x-120 scale-y-60" 
-                     style={{ background: 'radial-gradient(ellipse 120% 60%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.25) 50%, transparent 100%)' }}></div>
+                {/* Light mode logotype */}
                 <img 
                   src="/Transparent LogoType.png" 
                   alt="DigiUp IT Consulting & Solutions" 
-                  className="relative z-10 w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
+                  className="dark:hidden w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
+                />
+                {/* Dark mode logotype */}
+                <img 
+                  src="/Transparent LogoTypeDarkMode.png" 
+                  alt="DigiUp IT Consulting & Solutions" 
+                  className="hidden dark:block w-full h-full object-contain animate-float hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
