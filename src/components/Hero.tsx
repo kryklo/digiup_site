@@ -101,7 +101,7 @@ const Hero = () => {
               {/* Main Logotype */}
               <div className="relative w-80 h-48 sm:w-96 sm:h-64 flex items-center justify-center">
                 {/* Subtle backdrop for dark mode only */}
-                <div className="absolute inset-4 dark:bg-white/30 rounded-full blur-sm animate-float transform scale-x-150 scale-y-75"></div>
+                <div className="absolute inset-4 dark:bg-gradient-radial dark:from-white/30 dark:to-transparent rounded-full blur-sm animate-float transform scale-x-150 scale-y-75"></div>
                 <img 
                   src="/Transparent LogoType.png" 
                   alt="DigiUp IT Consulting & Solutions" 

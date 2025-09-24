@@ -8,6 +8,9 @@ export default {
         'heading': ['MuseoModerno', 'cursive'],
         'body': ['Roboto', 'sans-serif'],
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],
