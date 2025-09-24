@@ -102,7 +102,7 @@ const Hero = () => {
               <div className="relative w-80 h-48 sm:w-96 sm:h-64 flex items-center justify-center">
                 {/* Subtle backdrop for dark mode only */}
                 <div className="absolute inset-8 dark:bg-gradient-to-r dark:from-transparent dark:via-white/30 dark:to-transparent rounded-full blur-sm animate-float transform scale-x-120 scale-y-60" 
-                     style={{ background: 'radial-gradient(ellipse 150% 75%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.15) 50%, transparent 100%)' }}></div>
+                     style={{ background: 'radial-gradient(ellipse 120% 60%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.25) 50%, transparent 100%)' }}></div>
                 <img 
                   src="/Transparent LogoType.png" 
                   alt="DigiUp IT Consulting & Solutions" 
