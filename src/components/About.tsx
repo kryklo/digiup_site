@@ -54,7 +54,6 @@ const About = () => {
                 systemach produkcji przepływowej, integracjach EDI i automatyzacjach procesów.
               </p>
               <p className="leading-relaxed">
-                Lubię <strong className="text-gray-800">proste i szybkie usprawnienia</strong>, które natychmiast odciążają ludzi od 
                 Lubię <strong className="text-gray-800 dark:text-gray-100">proste i szybkie usprawnienia</strong>, które natychmiast odciążają ludzi od 
                 powtarzalnej pracy.
               </p>
