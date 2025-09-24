@@ -68,9 +68,9 @@ const DarkModeToggle = () => {
   const getLabel = () => {
     switch (mode) {
       case 'light':
-        return 'Tryb jasny';
+        return 'Jasny';
       case 'dark':
-        return 'Tryb ciemny';
+        return 'Ciemny';
       case 'system':
         return 'Automatyczny';
     }
@@ -79,11 +79,11 @@ const DarkModeToggle = () => {
   const getNextLabel = () => {
     switch (mode) {
       case 'light':
-        return 'Przełącz na tryb ciemny';
+        return 'Przełącz na ciemny';
       case 'dark':
-        return 'Przełącz na tryb automatyczny';
+        return 'Przełącz na automatyczny';
       case 'system':
-        return 'Przełącz na tryb jasny';
+        return 'Przełącz na jasny';
     }
   };
 
