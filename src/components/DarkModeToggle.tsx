@@ -53,6 +53,7 @@ const DarkModeToggle = () => {
     
     setMode(nextMode);
     setDisplayMode(nextMode);
+    setDisplayMode(nextMode);
     localStorage.setItem('digiup-theme-mode', nextMode);
     applyTheme(nextMode, systemPrefersDark);
   };
