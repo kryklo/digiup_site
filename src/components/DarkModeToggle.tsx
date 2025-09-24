@@ -6,6 +6,7 @@ type ThemeMode = 'light' | 'dark' | 'system';
 const DarkModeToggle = () => {
   const [mode, setMode] = useState<ThemeMode>('system');
   const [systemPrefersDark, setSystemPrefersDark] = useState(false);
+  const [displayMode, setDisplayMode] = useState<ThemeMode>('system');
 
   useEffect(() => {
     // Check saved preference
@@ -19,6 +20,7 @@ const DarkModeToggle = () => {
 
     // Apply theme
     applyTheme(initialMode, mediaQuery.matches);
+    setDisplayMode(initialMode);
 
     // Listen for system changes
     const handleSystemChange = (e: MediaQueryListEvent) => {
@@ -50,12 +52,13 @@ const DarkModeToggle = () => {
     const nextMode = modes[(currentIndex + 1) % modes.length];
     
     setMode(nextMode);
+    setDisplayMode(nextMode);
     localStorage.setItem('digiup-theme-mode', nextMode);
     applyTheme(nextMode, systemPrefersDark);
   };
 
   const getCurrentIcon = () => {
-    switch (mode) {
+    switch (displayMode) {
       case 'light':
         return <Sun size={16} className="text-yellow-500" />;
       case 'dark':
@@ -66,7 +69,7 @@ const DarkModeToggle = () => {
   };
 
   const getLabel = () => {
-    switch (mode) {
+    switch (displayMode) {
       case 'light':
         return 'Tryb jasny';
       case 'dark':
@@ -77,7 +80,7 @@ const DarkModeToggle = () => {
   };
 
   const getNextLabel = () => {
-    switch (mode) {
+    switch (displayMode) {
       case 'light':
         return 'Przełącz na tryb ciemny';
       case 'dark':
