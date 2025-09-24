@@ -95,8 +95,8 @@ const Hero = () => {
             isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
           }`}>
             <div className="relative">
-              {/* Subtle Background Circle */}
-              <div className="absolute inset-0 bg-cyan-100/30 rounded-full animate-pulse"></div>
+              {/* Subtle Background Circle - only in light mode */}
+              <div className="absolute inset-0 bg-cyan-100/30 dark:bg-transparent rounded-full animate-pulse"></div>
               
               {/* Main Logotype */}
               <div className="relative w-80 h-48 sm:w-96 sm:h-64 flex items-center justify-center">
