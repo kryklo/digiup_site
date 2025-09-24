@@ -161,10 +161,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white relative overflow-hidden">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Success Popup */}
       {showSuccessPopup && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-50">
           <div className="bg-green-500 text-white px-8 py-6 rounded-xl shadow-2xl animate-slide-up max-w-md mx-4">
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
@@ -178,18 +178,18 @@ const Contact = () => {
       )}
 
       {/* Background Dots */}
-      <div className="absolute top-20 left-10 w-3 h-3 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
-      <div className="absolute bottom-32 right-16 w-2 h-2 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
-      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-purple-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-20 left-10 w-3 h-3 bg-cyan-300 dark:bg-cyan-400 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute bottom-32 right-16 w-2 h-2 bg-blue-300 dark:bg-blue-400 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-purple-200 dark:bg-purple-300 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
       
       {/* Additional dots */}
-      <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-cyan-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
-      <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-blue-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
-      <div className="absolute top-3/4 right-20 w-2 h-2 bg-purple-100 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-cyan-200 dark:bg-cyan-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-blue-200 dark:bg-blue-300 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-3/4 right-20 w-2 h-2 bg-purple-100 dark:bg-purple-200 rounded-full animate-float animate-pulse-grow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 px-2 sm:px-0">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 dark:text-white mb-4">
             Kontakt
           </h2>
         </div>
@@ -198,19 +198,19 @@ const Contact = () => {
           
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-50 p-6 sm:p-8 rounded-xl border border-gray-100">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-xl border border-gray-100 dark:border-gray-700">
               {/* Status Messages */}
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="font-body text-green-800 text-sm">
+                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg">
+                  <p className="font-body text-green-800 dark:text-green-300 text-sm">
                     ✅ Dziękuję za wiadomość! Skontaktuję się z Tobą w ciągu 24 godzin.
                   </p>
                 </div>
               )}
               
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="font-body text-red-800 text-sm">
+                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg">
+                  <p className="font-body text-red-800 dark:text-red-300 text-sm">
                     ❌ Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub zadzwoń: 
                     <a href="tel:+48571570330" className="underline ml-1">+48 571 570 330</a> lub napisz: 
                     <a href="mailto:krystian@digiup.biz" className="underline ml-1">krystian@digiup.biz</a>
@@ -218,13 +218,13 @@ const Contact = () => {
                 </div>
               )}
 
-              <h3 className="text-xl font-heading font-bold text-gray-800 mb-2">
+              <h3 className="text-xl font-heading font-bold text-gray-800 dark:text-white mb-2">
                 Szybka wycena
               </h3>
-              <p className="font-body text-gray-600 text-sm mb-6">Opisz swój problem, a skontaktuję się z Tobą w ciągu 24 godzin</p>
+              <p className="font-body text-gray-600 dark:text-gray-300 text-sm mb-6">Opisz swój problem, a skontaktuję się z Tobą w ciągu 24 godzin</p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-body font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-body font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Imię i nazwisko *
                   </label>
                   <input
@@ -234,13 +234,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="Twoje imię i nazwisko"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-body font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-body font-medium text-gray-700 dark:text-gray-300 mb-1">
                     E-mail *
                   </label>
                   <input
@@ -250,29 +250,29 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="twoj@email.pl"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-body font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Wiadomość *
                   </label>
                   <div className="quill-wrapper">
                     {!isQuillLoaded ? (
-                      <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
-                        <span className="font-body text-gray-500">Ładowanie edytora...</span>
+                      <div className="w-full h-40 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-600">
+                        <span className="font-body text-gray-500 dark:text-gray-400">Ładowanie edytora...</span>
                       </div>
                     ) : (
                       <div 
                         ref={editorRef}
-                        className="bg-white rounded-lg border border-gray-200"
+                        className="bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600"
                         style={{ minHeight: '200px' }}
                       />
                     )}
                   </div>
-                  <p className="text-xs font-body text-gray-500 mt-2">
+                  <p className="text-xs font-body text-gray-500 dark:text-gray-400 mt-2">
                     💡 Obrazy są automatycznie kompresowane. Dla bardzo dużych plików zalecam wysłanie jako załącznik na: <a href="mailto:krystian@digiup.biz" className="text-cyan-600 underline">krystian@digiup.biz</a>
                   </p>
                 </div>
@@ -295,17 +295,17 @@ const Contact = () => {
                   )}
                 </button>
 
-                <p className="text-sm font-body text-gray-500 text-center">
+                <p className="text-sm font-body text-gray-500 dark:text-gray-400 text-center">
                   * Pola wymagane. Odpowiem w ciągu 24 godzin.
                 </p>
 
-                <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-4 text-center">
-                  <p className="text-xs font-body text-cyan-800">
+                <div className="bg-cyan-50 dark:bg-cyan-900/30 border border-cyan-200 dark:border-cyan-700 rounded-lg p-4 text-center">
+                  <p className="text-xs font-body text-cyan-800 dark:text-cyan-300">
                     🍪 <strong>Informacja o cookies:</strong> Wysyłając formularz, potwierdzasz akceptację plików cookies niezbędnych do jego działania. 
                     Więcej informacji znajdziesz w polityce prywatności.
                   </p>
                 </div>
-                <div className="text-xs font-body text-gray-500 text-center">
+                <div className="text-xs font-body text-gray-500 dark:text-gray-400 text-center">
                   <p>Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych w celu udzielenia odpowiedzi na zapytanie, zgodnie z polityką prywatności. Dane będą przetwarzane przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
                 </div>
               </form>
@@ -314,34 +314,34 @@ const Contact = () => {
           
           {/* Company Info */}
           <div className="space-y-8">
-            <div className="bg-white p-6 sm:p-6 rounded-xl border border-gray-100">
-              <h3 className="text-lg font-heading font-bold text-gray-800 mb-4">
+            <div className="bg-white dark:bg-gray-800 p-6 sm:p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+              <h3 className="text-lg font-heading font-bold text-gray-800 dark:text-white mb-4">
                 Dane firmy
               </h3>
               <div className="space-y-4 text-sm">
                 <div>
-                  <p className="font-body font-semibold text-gray-800">DigiUp IT Consulting & Solutions</p>
-                  <p className="font-body text-gray-600">Krystian Kłopocki</p>
+                  <p className="font-body font-semibold text-gray-800 dark:text-white">DigiUp IT Consulting & Solutions</p>
+                  <p className="font-body text-gray-600 dark:text-gray-300">Krystian Kłopocki</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center space-x-2 font-body text-gray-600">
-                    <Mail size={16} className="text-cyan-500" />
+                  <div className="flex items-center space-x-2 font-body text-gray-600 dark:text-gray-300">
+                    <Mail size={16} className="text-cyan-500 dark:text-cyan-400" />
                     <span>krystian@digiup.biz</span>
                   </div>
-                  <div className="flex items-center space-x-2 font-body text-gray-600">
-                    <Phone size={16} className="text-cyan-500" />
+                  <div className="flex items-center space-x-2 font-body text-gray-600 dark:text-gray-300">
+                    <Phone size={16} className="text-cyan-500 dark:text-cyan-400" />
                     <span>+48 571 570 330</span>
                   </div>
-                  <div className="flex items-center space-x-2 font-body text-gray-600">
-                    <Building size={16} className="text-cyan-500" />
+                  <div className="flex items-center space-x-2 font-body text-gray-600 dark:text-gray-300">
+                    <Building size={16} className="text-cyan-500 dark:text-cyan-400" />
                     <span>NIP: 6211763005</span>
                   </div>
-                  <div className="flex items-center space-x-2 font-body text-gray-600">
-                    <MapPin size={16} className="text-cyan-500" />
+                  <div className="flex items-center space-x-2 font-body text-gray-600 dark:text-gray-300">
+                    <MapPin size={16} className="text-cyan-500 dark:text-cyan-400" />
                     <span>Roszków os. Zielony Zakątek 73/1, 63-200 Jarocin</span>
                   </div>
-                  <div className="flex items-center space-x-2 font-body text-gray-600">
-                    <Building size={16} className="text-cyan-500" />
+                  <div className="flex items-center space-x-2 font-body text-gray-600 dark:text-gray-300">
+                    <Building size={16} className="text-cyan-500 dark:text-cyan-400" />
                     <span>REGON: 540342350</span>
                   </div>
                 </div>

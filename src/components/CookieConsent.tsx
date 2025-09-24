@@ -47,35 +47,35 @@ const CookieConsent = () => {
   if (!showConsent) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50 p-4">
-      <div className="bg-white rounded-t-2xl max-w-4xl w-full shadow-2xl animate-slide-up">
+    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-end justify-center z-50 p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-t-2xl max-w-4xl w-full shadow-2xl animate-slide-up">
         <div className="p-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-cyan-100 rounded-lg">
-                <Cookie className="text-cyan-600" size={24} />
+              <div className="p-2 bg-cyan-100 dark:bg-cyan-800 rounded-lg">
+                <Cookie className="text-cyan-600 dark:text-cyan-400" size={24} />
               </div>
-              <h3 className="text-xl font-heading font-bold text-gray-800">
+              <h3 className="text-xl font-heading font-bold text-gray-800 dark:text-white">
                 Używam plików cookies
               </h3>
             </div>
             <button
               onClick={rejectAll}
-              className="text-gray-400 hover:text-gray-600 p-1"
+              className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 p-1"
             >
               <X size={20} />
             </button>
           </div>
 
           <div className="mb-6">
-            <p className="font-body text-gray-600 mb-4">
+            <p className="font-body text-gray-600 dark:text-gray-300 mb-4">
               Strona używa plików cookies, aby zapewnić najlepsze doświadczenia użytkownika. 
               Cookies pomagają mi analizować ruch na stronie i dostosowywać treści.
             </p>
 
             {showDetails && (
-              <div className="bg-gray-50 rounded-lg p-4 mb-4 text-sm font-body text-gray-600">
-                <h4 className="font-semibold text-gray-800 mb-2">Rodzaje cookies:</h4>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4 text-sm font-body text-gray-600 dark:text-gray-300">
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-2">Rodzaje cookies:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start space-x-2">
                     <Check size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
@@ -101,7 +101,7 @@ const CookieConsent = () => {
 
             <button
               onClick={() => setShowDetails(!showDetails)}
-              className="text-cyan-600 hover:text-cyan-700 font-body text-sm underline"
+              className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-body text-sm underline"
             >
               {showDetails ? 'Ukryj szczegóły' : 'Pokaż szczegóły'}
             </button>
@@ -110,25 +110,25 @@ const CookieConsent = () => {
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={acceptAll}
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-body font-semibold flex-1 transition-colors duration-200"
+              className="bg-cyan-500 hover:bg-cyan-600 dark:bg-cyan-600 dark:hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-body font-semibold flex-1 transition-colors duration-200"
             >
               Akceptuj wszystkie
             </button>
             <button
               onClick={acceptNecessary}
-              className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-body font-semibold hover:border-cyan-500 hover:text-cyan-600 flex-1 transition-colors duration-200"
+              className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-body font-semibold hover:border-cyan-500 hover:text-cyan-600 dark:hover:border-cyan-400 dark:hover:text-cyan-400 flex-1 transition-colors duration-200"
             >
               Tylko niezbędne
             </button>
             <button
               onClick={rejectAll}
-              className="text-gray-500 hover:text-gray-700 px-6 py-3 rounded-lg font-body text-sm underline transition-colors duration-200"
+              className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 px-6 py-3 rounded-lg font-body text-sm underline transition-colors duration-200"
             >
               Odrzuć wszystkie
             </button>
           </div>
 
-          <p className="text-xs font-body text-gray-500 mt-4 text-center">
+          <p className="text-xs font-body text-gray-500 dark:text-gray-400 mt-4 text-center">
             Możesz zmienić swoje preferencje w każdej chwili w ustawieniach przeglądarki.
           </p>
         </div>

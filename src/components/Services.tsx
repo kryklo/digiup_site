@@ -56,25 +56,25 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
       {/* Background Dots */}
-      <div className="absolute top-10 left-10 w-2 h-2 bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
-      <div className="absolute top-32 right-20 w-3 h-3 bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
-      <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-purple-300 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
-      <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-cyan-200 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute top-10 left-10 w-2 h-2 bg-cyan-300 dark:bg-cyan-400 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute top-32 right-20 w-3 h-3 bg-blue-300 dark:bg-blue-400 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-purple-300 dark:bg-purple-400 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-cyan-200 dark:bg-cyan-300 rounded-full animate-float animate-pulse-grow"></div>
       
       {/* Additional dots */}
-      <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-blue-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-200 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
-      <div className="absolute top-2/3 left-20 w-2 h-2 bg-cyan-100 rounded-full animate-float animate-pulse-grow"></div>
-      <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-100 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-blue-200 dark:bg-blue-300 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-200 dark:bg-purple-300 rounded-full animate-float-slow animate-pulse-grow-slow"></div>
+      <div className="absolute top-2/3 left-20 w-2 h-2 bg-cyan-100 dark:bg-cyan-200 rounded-full animate-float animate-pulse-grow"></div>
+      <div className="absolute bottom-1/4 right-16 w-3 h-3 bg-blue-100 dark:bg-blue-200 rounded-full animate-float-delayed animate-pulse-grow-delayed"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 px-2 sm:px-0">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-800 dark:text-white mb-4">
             Usługi
           </h2>
-          <p className="text-lg font-body text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg font-body text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Rozwiązania automatyzacji i cyfryzacji dla Twojej firmy
           </p>
         </div>
@@ -83,22 +83,22 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-6 sm:p-8 rounded-xl bg-white hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+              className="group p-6 sm:p-8 rounded-xl bg-white dark:bg-gray-700 hover:shadow-xl dark:hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 dark:border-gray-600"
             >
               <div className="flex items-start space-x-6">
                 <div className={`p-4 rounded-xl ${service.color} ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}>
                   <service.icon size={28} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-heading font-bold text-gray-800 mb-2">
+                  <h3 className="text-xl font-heading font-bold text-gray-800 dark:text-white mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm font-body text-gray-500 mb-4">{service.subtitle}</p>
+                  <p className="text-sm font-body text-gray-500 dark:text-gray-400 mb-4">{service.subtitle}</p>
                   <ul className="space-y-3">
                     {service.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="font-body text-gray-600 text-sm leading-relaxed">{item}</span>
+                        <div className="w-1.5 h-1.5 bg-cyan-400 dark:bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>

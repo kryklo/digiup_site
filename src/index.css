@@ -198,6 +198,12 @@ textarea:focus {
   background: #f9fafb !important;
 }
 
+.dark .quill-wrapper .ql-toolbar {
+  border-color: #4b5563 !important;
+  background: #374151 !important;
+  color: #f3f4f6 !important;
+}
+
 .quill-wrapper .ql-container {
   border-bottom: 1px solid #e5e7eb !important;
   border-left: 1px solid #e5e7eb !important;
@@ -207,17 +213,31 @@ textarea:focus {
   font-family: 'Roboto', sans-serif !important;
 }
 
+.dark .quill-wrapper .ql-container {
+  border-color: #4b5563 !important;
+  background: #374151 !important;
+}
+
 .quill-wrapper .ql-editor {
   font-family: 'Roboto', sans-serif !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
   min-height: 150px !important;
+  color: #111827 !important;
+}
+
+.dark .quill-wrapper .ql-editor {
+  color: #f3f4f6 !important;
 }
 
 .quill-wrapper .ql-editor.ql-blank::before {
   font-family: 'Roboto', sans-serif !important;
   font-style: normal !important;
   color: #9ca3af !important;
+}
+
+.dark .quill-wrapper .ql-editor.ql-blank::before {
+  color: #6b7280 !important;
 }
 
 .quill-wrapper .ql-editor:focus {
@@ -235,4 +255,32 @@ textarea:focus {
 
 .quill-wrapper .ql-toolbar button.ql-active {
   color: #06b6d4 !important;
+}
+
+.dark .quill-wrapper .ql-toolbar button {
+  color: #d1d5db !important;
+}
+
+.dark .quill-wrapper .ql-toolbar button:hover {
+  color: #22d3ee !important;
+}
+
+.dark .quill-wrapper .ql-toolbar button.ql-active {
+  color: #22d3ee !important;
+}
+
+.dark .quill-wrapper .ql-toolbar .ql-stroke {
+  stroke: #d1d5db !important;
+}
+
+.dark .quill-wrapper .ql-toolbar .ql-fill {
+  fill: #d1d5db !important;
+}
+
+.dark .quill-wrapper .ql-toolbar button:hover .ql-stroke {
+  stroke: #22d3ee !important;
+}
+
+.dark .quill-wrapper .ql-toolbar button:hover .ql-fill {
+  fill: #22d3ee !important;
 }

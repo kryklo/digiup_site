@@ -6,25 +6,25 @@ const Footer = () => {
   const [showTerms, setShowTerms] = React.useState(false);
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="mb-4">
-              <h3 className="text-xl font-heading font-bold text-white">
+              <h3 className="text-xl font-heading font-bold text-white dark:text-gray-100">
                 DigiUp <span className="font-body font-normal">IT C & S</span>
               </h3>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed mb-4">
             </p>
-            <p className="font-body text-gray-400 max-w-md leading-relaxed mb-4">
+            <p className="font-body text-gray-400 dark:text-gray-300 max-w-md leading-relaxed mb-4">
               DigiUp IT Consulting & Solutions specjalizuje się w automatyzacji procesów biznesowych, 
               integracjach systemów i rozwiązaniach szytych na miarę.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/in/krystian-kłopocki" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+              <a href="https://www.linkedin.com/in/krystian-kłopocki" target="_blank" rel="noopener noreferrer" className="text-gray-400 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -32,7 +32,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-white mb-4">Szybkie linki</h4>
+            <h4 className="font-heading font-bold text-white dark:text-gray-100 mb-4">Szybkie linki</h4>
             <ul className="space-y-2">
               {[
                 { label: 'Usługi', id: 'services' },
@@ -43,7 +43,7 @@ const Footer = () => {
                 <li key={item.id}>
                   <button
                     onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
-                    className="font-body text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+                    className="font-body text-gray-400 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                   >
                     {item.label}
                   </button>
@@ -54,17 +54,17 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading font-bold text-white mb-4">Kontakt</h4>
+            <h4 className="font-heading font-bold text-white dark:text-gray-100 mb-4">Kontakt</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-2 font-body text-gray-400">
+              <div className="flex items-center space-x-2 font-body text-gray-400 dark:text-gray-300">
                 <Mail size={16} />
                 <span className="text-sm">krystian@digiup.biz</span>
               </div>
-              <div className="flex items-center space-x-2 font-body text-gray-400">
+              <div className="flex items-center space-x-2 font-body text-gray-400 dark:text-gray-300">
                 <Phone size={16} />
                 <span className="text-sm">+48 571 570 330</span>
               </div>
-              <div className="font-body text-gray-400 text-xs mt-4">
+              <div className="font-body text-gray-400 dark:text-gray-300 text-xs mt-4">
                 <p>DigiUp IT Consulting & Solutions</p>
                 <p>Krystian Kłopocki</p>
                 <p>Roszków os. Zielony Zakątek 73/1</p>
@@ -76,21 +76,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-800 pt-8 mt-8 text-center">
-          <p className="font-body text-gray-400 text-sm">
+        <div className="border-t border-gray-800 dark:border-gray-700 pt-8 mt-8 text-center">
+          <p className="font-body text-gray-400 dark:text-gray-300 text-sm">
             © 2024 DigiUp IT Consulting & Solutions. Wszystkie prawa zastrzeżone.
           </p>
           <div className="mt-2">
             <button
               onClick={() => setShowPrivacyPolicy(true)}
-              className="font-body text-gray-400 hover:text-cyan-400 text-sm underline transition-colors duration-200"
+              className="font-body text-gray-400 dark:text-gray-300 hover:text-cyan-400 text-sm underline transition-colors duration-200"
             >
               Polityka prywatności
             </button>
             <span className="text-gray-400 mx-2">|</span>
             <button
               onClick={() => setShowTerms(true)}
-              className="font-body text-gray-400 hover:text-cyan-400 text-sm underline transition-colors duration-200"
+              className="font-body text-gray-400 dark:text-gray-300 hover:text-cyan-400 text-sm underline transition-colors duration-200"
             >
               Regulamin
             </button>
@@ -100,24 +100,24 @@ const Footer = () => {
 
       {/* Privacy Policy Popup */}
       {showPrivacyPolicy && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] relative">
-            <div className="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 z-10">
-              <h2 className="text-2xl font-heading font-bold text-gray-800">Polityka prywatności</h2>
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl max-h-[80vh] relative">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 dark:border-gray-700 z-10">
+              <h2 className="text-2xl font-heading font-bold text-gray-800 dark:text-white">Polityka prywatności</h2>
               <button
                 onClick={() => setShowPrivacyPolicy(false)}
-                className="text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors duration-200"
               >
                 <X size={24} />
               </button>
             </div>
-            <div className="p-6 pt-4 font-body text-gray-600 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
+            <div className="p-6 pt-4 font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
               <div className="space-y-4">
-                <p className="font-semibold">DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
+                <p className="font-semibold text-gray-800 dark:text-white">DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">1. Informacje ogólne</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">1. Informacje ogólne</h3>
                     <p className="mb-2">Administratorem danych osobowych jest:</p>
                     <div className="ml-4 space-y-1">
                       <p>DigiUp IT Consulting & Solutions Krystian Kłopocki</p>
@@ -134,7 +134,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">2. Zakres zbieranych danych</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">2. Zakres zbieranych danych</h3>
                     <p className="mb-2">Podczas korzystania ze strony digiup.biz oraz usług Administratora mogą być zbierane dane:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>podane w formularzu kontaktowym (imię, nazwisko, adres e-mail, numer telefonu, treść wiadomości),</li>
@@ -144,7 +144,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">3. Cele przetwarzania danych</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">3. Cele przetwarzania danych</h3>
                     <p className="mb-2">Dane osobowe przetwarzane są w celach:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>obsługi zapytań kierowanych przez formularz kontaktowy,</li>
@@ -156,7 +156,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">4. Podstawa prawna</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">4. Podstawa prawna</h3>
                     <p className="mb-2">Przetwarzanie odbywa się zgodnie z RODO (Rozporządzeniem 2016/679), w oparciu o:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>art. 6 ust. 1 lit. a – zgoda użytkownika,</li>
@@ -167,7 +167,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">5. Udostępnianie danych</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">5. Udostępnianie danych</h3>
                     <p className="mb-2">Dane mogą być udostępniane wyłącznie:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>podmiotom wspierającym obsługę działalności (księgowość, hosting, IT),</li>
@@ -177,7 +177,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">6. Pliki cookies</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">6. Pliki cookies</h3>
                     <p className="mb-2">Strona digiup.biz wykorzystuje pliki cookies w celu:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>zapewnienia poprawnego działania strony,</li>
@@ -189,7 +189,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">7. Czas przechowywania danych</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">7. Czas przechowywania danych</h3>
                     <p className="mb-2">Dane przechowujemy:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>przez okres niezbędny do realizacji celu przetwarzania,</li>
@@ -199,7 +199,7 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">8. Prawa użytkowników</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">8. Prawa użytkowników</h3>
                     <p className="mb-2">Użytkownik ma prawo do:</p>
                     <ul className="ml-4 space-y-1 list-disc">
                       <li>dostępu do swoich danych,</li>
@@ -212,12 +212,12 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">9. Ochrona danych</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">9. Ochrona danych</h3>
                     <p>Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby chronić dane przed nieuprawnionym dostępem, utratą, zniszczeniem lub nieuprawnioną modyfikacją.</p>
                   </div>
 
                   <div>
-                    <h3 className="font-heading font-semibold text-gray-800 mb-2">10. Zmiany polityki</h3>
+                    <h3 className="font-heading font-semibold text-gray-800 dark:text-white mb-2">10. Zmiany polityki</h3>
                     <p className="mb-2">Administrator zastrzega sobie prawo do zmian niniejszej Polityki w przypadku aktualizacji oferty, przepisów prawa lub technologii.</p>
                     <p>Aktualna wersja Polityki zawsze dostępna jest na stronie digiup.biz.</p>
                   </div>
@@ -230,18 +230,18 @@ const Footer = () => {
 
       {/* Terms of Service Popup */}
       {showTerms && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl max-h-[80vh] relative">
-            <div className="sticky top-0 bg-white rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 z-10">
-              <h2 className="text-2xl font-heading font-bold text-gray-800">Regulamin strony internetowej DigiUp</h2>
+        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl max-h-[80vh] relative">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 rounded-t-lg flex justify-between items-center p-6 pb-4 border-b border-gray-200 dark:border-gray-700 z-10">
+              <h2 className="text-2xl font-heading font-bold text-gray-800 dark:text-white">Regulamin strony internetowej DigiUp</h2>
               <button
                 onClick={() => setShowTerms(false)}
-                className="text-gray-500 hover:text-gray-700 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors duration-200"
               >
                 <X size={24} />
               </button>
             </div>
-            <div className="p-6 pt-4 font-body text-gray-600 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
+            <div className="p-6 pt-4 font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed overflow-y-auto max-h-[calc(80vh-80px)]">
               <div className="space-y-4">
                 <p>Strona digiup.biz prowadzona jest przez DigiUp IT Consulting & Solutions Krystian Kłopocki.</p>
                 
