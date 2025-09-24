@@ -52,7 +52,7 @@ const DarkModeToggle = () => {
       
       {/* Slider Button */}
       <div className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-all duration-300 transform flex items-center justify-center ${
-        isDark ? 'translate-x-5.5' : 'translate-x-0.5'
+        isDark ? 'translate-x-5' : 'translate-x-0.5'
       }`}>
         <Sun 
           size={12} 
