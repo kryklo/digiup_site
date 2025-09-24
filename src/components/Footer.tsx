@@ -58,11 +58,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 font-body text-gray-400 dark:text-gray-300">
                 <Mail size={16} />
-                <span className="text-sm">krystian@digiup.biz</span>
+                <a href="mailto:krystian@digiup.biz" className="text-sm hover:text-cyan-400 transition-colors duration-200">
+                  krystian@digiup.biz
+                </a>
               </div>
               <div className="flex items-center space-x-2 font-body text-gray-400 dark:text-gray-300">
                 <Phone size={16} />
-                <span className="text-sm">+48 571 570 330</span>
+                <a href="tel:+48571570330" className="text-sm hover:text-cyan-400 transition-colors duration-200">
+                  +48 571 570 330
+                </a>
               </div>
               <div className="font-body text-gray-400 dark:text-gray-300 text-xs mt-4">
                 <p>DigiUp IT Consulting & Solutions</p>
