@@ -72,7 +72,7 @@ const DarkModeToggle = () => {
       case 'dark':
         return 'Ciemny';
       case 'system':
-        return 'Automatyczny';
+        return 'System';
     }
   };
 
@@ -81,7 +81,7 @@ const DarkModeToggle = () => {
       case 'light':
         return 'Przełącz na ciemny';
       case 'dark':
-        return 'Przełącz na automatyczny';
+        return 'Przełącz na systemowy';
       case 'system':
         return 'Przełącz na jasny';
     }
