@@ -94,7 +94,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
+          <div className="md:hidden bg-cyan-50/95 dark:bg-cyan-900/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg border border-cyan-200/50 dark:border-cyan-700/50">
             <nav className="flex flex-col space-y-4 p-4">
               {[
                 { label: 'Usługi', id: 'services' },
@@ -111,9 +111,9 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
-              <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+              <div className="pt-2 border-t border-cyan-200 dark:border-cyan-700">
                 <div className="flex items-center justify-between">
-                  <span className="font-body text-sm text-gray-600 dark:text-gray-400">Motyw</span>
+                  <span className="font-body text-sm text-cyan-700 dark:text-cyan-300">Motyw</span>
                   <DarkModeToggle />
                 </div>
               </div>
