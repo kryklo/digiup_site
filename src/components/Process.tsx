@@ -92,15 +92,17 @@ const Process = () => {
             <p className="font-body text-gray-600 dark:text-gray-300 mb-6">
               Opowiedz mi o swoim wyzwaniu – już podczas pierwszej rozmowy otrzymasz konkretne wskazówki.
             </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto flex items-center justify-center"
-            >
-              Zacznijmy rozmowę
-            </button>
+            <div className="flex justify-center">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto flex items-center justify-center mx-auto"
+              >
+                Zacznijmy rozmowę
+              </button>
+            </div>
           </div>
         </div>
       </div>

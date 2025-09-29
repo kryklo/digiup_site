@@ -102,13 +102,13 @@ const Cases = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 flex justify-center">
           <button
             onClick={(e) => {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto flex items-center justify-center"
+            className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-full sm:w-auto flex items-center justify-center mx-auto"
           >
             Omów swój projekt
           </button>
