@@ -106,13 +106,13 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left font-body text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 font-medium py-2"
+                  className="w-full text-left font-body text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 font-medium py-3 px-2 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-800/50 transition-all duration-200"
                 >
                   {item.label}
                 </button>
               ))}
               <div className="pt-2 border-t border-cyan-200 dark:border-cyan-700">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between py-1 px-2">
                   <span className="font-body text-sm text-cyan-700 dark:text-cyan-300">Motyw</span>
                   <DarkModeToggle />
                 </div>
