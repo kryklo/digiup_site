@@ -71,7 +71,7 @@ const Hero = () => {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-body font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 w-full sm:w-auto"
               >
                 <span>Umów konsultację</span>
                 <PlayCircle size={20} />
@@ -82,7 +82,7 @@ const Hero = () => {
                   e.preventDefault();
                   document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg font-body font-semibold hover:border-cyan-500 hover:text-cyan-600 dark:hover:border-cyan-400 dark:hover:text-cyan-400 transition-all duration-200 flex items-center justify-center space-x-2"
+                className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-body font-semibold hover:border-cyan-500 hover:text-cyan-600 dark:hover:border-cyan-400 dark:hover:text-cyan-400 transition-all duration-200 flex items-center justify-center space-x-2 w-full sm:w-auto"
               >
                 <span>Zobacz co robię</span>
                 <ArrowDown size={20} />
